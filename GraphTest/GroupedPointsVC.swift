@@ -82,6 +82,7 @@ class GroupedPointsVC: UIViewController {
         minLine.lineWidth = 4
         minLine.valueTextColor = UIColor.black
         yAxis.addLimitLine(minLine)
+        
     }
     
 }

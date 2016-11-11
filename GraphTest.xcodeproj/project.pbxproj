@@ -21,6 +21,7 @@
 		8ED582A11DD1FD02006B329A /* GraphTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED582A01DD1FD02006B329A /* GraphTestUITests.swift */; };
 		99D99A541DD4924400CA09A6 /* DataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A531DD4924400CA09A6 /* DataValues.swift */; };
 		99D99A561DD4929100CA09A6 /* GroupedPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */; };
+		99D99A581DD5AD0A00CA09A6 /* CandleChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		8ED582A21DD1FD02006B329A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99D99A531DD4924400CA09A6 /* DataValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValues.swift; sourceTree = "<group>"; };
 		99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedPointsVC.swift; sourceTree = "<group>"; };
+		99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleChartVC.swift; sourceTree = "<group>"; };
 		D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26EC8CA202CEE37B46606D7 /* Pods-GraphTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 				8ED5828C1DD1FD02006B329A /* Info.plist */,
 				8ED582841DD1FD02006B329A /* GraphTest.xcdatamodeld */,
 				99D99A531DD4924400CA09A6 /* DataValues.swift */,
+				99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */,
 			);
 			path = GraphTest;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				8ED582861DD1FD02006B329A /* GraphTest.xcdatamodeld in Sources */,
 				8ED582801DD1FD02006B329A /* ViewController.swift in Sources */,
 				99D99A561DD4929100CA09A6 /* GroupedPointsVC.swift in Sources */,
+				99D99A581DD5AD0A00CA09A6 /* CandleChartVC.swift in Sources */,
 				99D99A541DD4924400CA09A6 /* DataValues.swift in Sources */,
 				8ED5827E1DD1FD02006B329A /* AppDelegate.swift in Sources */,
 				8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */,
