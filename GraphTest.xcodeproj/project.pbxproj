@@ -19,6 +19,8 @@
 		8ED5828B1DD1FD02006B329A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ED582891DD1FD02006B329A /* LaunchScreen.storyboard */; };
 		8ED582961DD1FD02006B329A /* GraphTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED582951DD1FD02006B329A /* GraphTestTests.swift */; };
 		8ED582A11DD1FD02006B329A /* GraphTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED582A01DD1FD02006B329A /* GraphTestUITests.swift */; };
+		99D99A541DD4924400CA09A6 /* DataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A531DD4924400CA09A6 /* DataValues.swift */; };
+		99D99A561DD4929100CA09A6 /* GroupedPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		8ED5829C1DD1FD02006B329A /* GraphTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED582A01DD1FD02006B329A /* GraphTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTestUITests.swift; sourceTree = "<group>"; };
 		8ED582A21DD1FD02006B329A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99D99A531DD4924400CA09A6 /* DataValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValues.swift; sourceTree = "<group>"; };
+		99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedPointsVC.swift; sourceTree = "<group>"; };
 		D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26EC8CA202CEE37B46606D7 /* Pods-GraphTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,7 @@
 		8ED5827C1DD1FD02006B329A /* GraphTest */ = {
 			isa = PBXGroup;
 			children = (
+				99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */,
 				8ED5827D1DD1FD02006B329A /* AppDelegate.swift */,
 				8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */,
 				8ED5827F1DD1FD02006B329A /* ViewController.swift */,
@@ -131,6 +136,7 @@
 				8ED582891DD1FD02006B329A /* LaunchScreen.storyboard */,
 				8ED5828C1DD1FD02006B329A /* Info.plist */,
 				8ED582841DD1FD02006B329A /* GraphTest.xcdatamodeld */,
+				99D99A531DD4924400CA09A6 /* DataValues.swift */,
 			);
 			path = GraphTest;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 				TargetAttributes = {
 					8ED582791DD1FD02006B329A = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = N7DN9W93BF;
 						ProvisioningStyle = Automatic;
 					};
 					8ED582901DD1FD02006B329A = {
@@ -350,6 +357,8 @@
 				8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */,
 				8ED582861DD1FD02006B329A /* GraphTest.xcdatamodeld in Sources */,
 				8ED582801DD1FD02006B329A /* ViewController.swift in Sources */,
+				99D99A561DD4929100CA09A6 /* GroupedPointsVC.swift in Sources */,
+				99D99A541DD4924400CA09A6 /* DataValues.swift in Sources */,
 				8ED5827E1DD1FD02006B329A /* AppDelegate.swift in Sources */,
 				8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */,
 			);
@@ -502,7 +511,9 @@
 			baseConfigurationReference = F26EC8CA202CEE37B46606D7 /* Pods-GraphTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N7DN9W93BF;
 				INFOPLIST_FILE = GraphTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.3callistos.GraphTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,7 +527,9 @@
 			baseConfigurationReference = 4589DF04AD0B9AD9A7E08258 /* Pods-GraphTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N7DN9W93BF;
 				INFOPLIST_FILE = GraphTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.3callistos.GraphTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
