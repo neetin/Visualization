@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tyv-KZ-nQ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MCP-xp-Ii8">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -51,18 +51,31 @@
                         <viewControllerLayoutGuide type="top" id="N0c-2m-bKr"/>
                         <viewControllerLayoutGuide type="bottom" id="Tkc-2j-bwN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="R5b-oO-6t0" customClass="LineChartView" customModule="Charts">
+                    <view key="view" contentMode="scaleToFill" id="R5b-oO-6t0">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZw-uS-MDn" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="32" y="76" width="960" height="680"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WZw-uS-MDn" firstAttribute="top" secondItem="N0c-2m-bKr" secondAttribute="bottom" constant="12" id="160-fl-Kpj"/>
+                            <constraint firstItem="WZw-uS-MDn" firstAttribute="leading" secondItem="R5b-oO-6t0" secondAttribute="leadingMargin" constant="12" id="4Gf-jB-BNV"/>
+                            <constraint firstItem="Tkc-2j-bwN" firstAttribute="top" secondItem="WZw-uS-MDn" secondAttribute="bottom" constant="12" id="8ks-t9-gj8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WZw-uS-MDn" secondAttribute="trailing" constant="12" id="FQR-bF-eJQ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Bh5-qh-n98"/>
                     <connections>
-                        <outlet property="chartView" destination="R5b-oO-6t0" id="LcF-J4-Of1"/>
+                        <outlet property="chartView" destination="WZw-uS-MDn" id="zcr-Mb-Fnj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAX-rW-vFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-686"/>
+            <point key="canvasLocation" x="1532.8125" y="-686.71875"/>
         </scene>
         <!--StartVC-->
         <scene sceneID="Dqr-xn-yOE">
@@ -197,6 +210,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMZ-gV-3oT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-431.19999999999999" y="44.527736131934034"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xh0-mz-1cv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MCP-xp-Ii8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lnh-gT-jpo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tyv-KZ-nQ0" kind="relationship" relationship="rootViewController" id="94N-wA-OtD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bRN-Jo-orJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808.59375" y="-686.71875"/>
         </scene>
     </scenes>
 </document>

@@ -39,14 +39,14 @@ struct DataCollection {
     
     static let max : UInt32 = 95
     static let min : UInt32 = 75
-    static var datas: [Int] = []
+    static var datas: [Double] = []
     static var episodeCreated = false
     static var maxEpisodeAllowed = 0
-    static var commonNightDayData = 0
-    static var commonDayNightData = 0
+    static var commonNightDayData: Double = 0
+    static var commonDayNightData: Double = 0
     static var appendPosition = ""
     
-    static func getOxygenSaturationData(withIndex index: Int) -> [Int] {
+    static func getOxygenSaturationData(withIndex index: Int) -> [Double] {
         datas = []
         setMaxEpisodeAllowed(withIndex: index)
         
@@ -75,17 +75,17 @@ struct DataCollection {
     }
     
     // returns number so that the total desaturation episodes is less than or equal to 30
-    static func getValidNumber(withEpisodeCount episodeCount: Int) -> Int {
+    static func getValidNumber(withEpisodeCount episodeCount: Int) -> Double {
         var randomNumber = Int(arc4random_uniform(max - min) + min)
         if randomNumber < 85 {
             episodeCreated = true
             if episodeCount >= maxEpisodeAllowed {
-                randomNumber = getValidNumber(withEpisodeCount: episodeCount)
+                randomNumber = Int(getValidNumber(withEpisodeCount: episodeCount))
             }
         } else {
             episodeCreated = false
         }
-        return randomNumber
+        return Double(randomNumber)
     }
     
     static func setMaxEpisodeAllowed(withIndex index: Int) {
