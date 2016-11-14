@@ -12,6 +12,12 @@ class StartVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        for i in 0..<14 {
+            let data = DataCollection.getOxygenSaturationData(withIndex: i)
+            print(data)
+            print("**************************************")
+            print("**************************************")
+        }
         
         /*
         for i in 0..<14 {
