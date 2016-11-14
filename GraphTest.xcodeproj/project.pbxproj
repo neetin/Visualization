@@ -20,6 +20,7 @@
 		8ED582961DD1FD02006B329A /* GraphTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED582951DD1FD02006B329A /* GraphTestTests.swift */; };
 		8ED582A11DD1FD02006B329A /* GraphTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED582A01DD1FD02006B329A /* GraphTestUITests.swift */; };
 		995D54501DD9935F007C86C7 /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D544F1DD9935F007C86C7 /* DataCollection.swift */; };
+		995D54521DD9C969007C86C7 /* OxygenSaturationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D54511DD9C969007C86C7 /* OxygenSaturationVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		8ED582A01DD1FD02006B329A /* GraphTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTestUITests.swift; sourceTree = "<group>"; };
 		8ED582A21DD1FD02006B329A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		995D544F1DD9935F007C86C7 /* DataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataCollection.swift; path = DataSource/DataCollection.swift; sourceTree = "<group>"; };
+		995D54511DD9C969007C86C7 /* OxygenSaturationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxygenSaturationVC.swift; sourceTree = "<group>"; };
 		D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26EC8CA202CEE37B46606D7 /* Pods-GraphTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 				8ED582891DD1FD02006B329A /* LaunchScreen.storyboard */,
 				8ED5828C1DD1FD02006B329A /* Info.plist */,
 				8ED582841DD1FD02006B329A /* GraphTest.xcdatamodeld */,
+				995D54511DD9C969007C86C7 /* OxygenSaturationVC.swift */,
 			);
 			path = GraphTest;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				995D54521DD9C969007C86C7 /* OxygenSaturationVC.swift in Sources */,
 				8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */,
 				8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */,
 				8ED582861DD1FD02006B329A /* GraphTest.xcdatamodeld in Sources */,

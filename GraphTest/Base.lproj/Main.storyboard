@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9sN-BX-ta8">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tyv-KZ-nQ0">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tV-dd-zMB" customClass="BubbleChartView" customModule="Charts">
-                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <rect key="frame" x="8" y="72" width="1008" height="688"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -43,6 +43,27 @@
             </objects>
             <point key="canvasLocation" x="1316" y="44.527736131934034"/>
         </scene>
+        <!--Oxygen SaturationVC-->
+        <scene sceneID="CfN-dq-Kwr">
+            <objects>
+                <viewController id="Tyv-KZ-nQ0" customClass="OxygenSaturationVC" customModule="GraphTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N0c-2m-bKr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tkc-2j-bwN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R5b-oO-6t0" customClass="LineChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="R5b-oO-6t0" id="LcF-J4-Of1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAX-rW-vFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="809" y="-686"/>
+        </scene>
         <!--StartVC-->
         <scene sceneID="Dqr-xn-yOE">
             <objects>
@@ -52,25 +73,25 @@
                         <viewControllerLayoutGuide type="bottom" id="nYP-CR-Byi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Eom-Kc-ABE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpP-Yf-wcw">
-                                <rect key="frame" x="16" y="72" width="91" height="30"/>
+                                <rect key="frame" x="20" y="72" width="91" height="30"/>
                                 <state key="normal" title="Bubble Chart"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="WPN-6c-FZZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGe-jD-8ns">
-                                <rect key="frame" x="16" y="110" width="113" height="30"/>
+                                <rect key="frame" x="20" y="110" width="113" height="30"/>
                                 <state key="normal" title="Combined Chart"/>
                                 <connections>
                                     <segue destination="aBP-Vy-6Lf" kind="show" id="vEg-Bg-7Fc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNE-tn-mqB">
-                                <rect key="frame" x="16" y="148" width="66" height="30"/>
+                                <rect key="frame" x="20" y="148" width="66" height="30"/>
                                 <state key="normal" title="Bar Chart"/>
                                 <connections>
                                     <segue destination="yqy-oE-knU" kind="show" id="hju-pD-0q7"/>
@@ -102,11 +123,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cUO-VP-zWc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gCl-us-U7g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suo-b5-1Qe" customClass="CombinedChartView" customModule="Charts">
-                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <rect key="frame" x="8" y="72" width="1008" height="688"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -135,11 +156,11 @@
                         <viewControllerLayoutGuide type="bottom" id="O7M-m2-dMQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7sC-U8-aed">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-4p-phg" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <rect key="frame" x="8" y="72" width="1008" height="688"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
