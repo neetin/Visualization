@@ -11,6 +11,10 @@
 		8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */; };
 		8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BF1DD3633A0074BD2F /* StartVC.swift */; };
 		8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */; };
+		8EBF25A61DD9D752001EF553 /* OxygenSaturationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF25A51DD9D752001EF553 /* OxygenSaturationVC.swift */; };
+		8EBF25AC1DD9D84C001EF553 /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF25AA1DD9D84C001EF553 /* DataCollection.swift */; };
+		8EBF25AD1DD9D84C001EF553 /* DataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF25AB1DD9D84C001EF553 /* DataValues.swift */; };
+		8EBF25AF1DDA1859001EF553 /* OxygenSaturationSegmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF25AE1DDA1859001EF553 /* OxygenSaturationSegmentVC.swift */; };
 		8ED5827E1DD1FD02006B329A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5827D1DD1FD02006B329A /* AppDelegate.swift */; };
 		8ED582801DD1FD02006B329A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5827F1DD1FD02006B329A /* ViewController.swift */; };
 		8ED582831DD1FD02006B329A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ED582811DD1FD02006B329A /* Main.storyboard */; };
@@ -23,7 +27,6 @@
 		8EEC38BA1DD9B25A00A5EA1F /* RespiratoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC38B91DD9B25A00A5EA1F /* RespiratoryVC.swift */; };
 		8EEC38BD1DD9B5BD00A5EA1F /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC38BC1DD9B5BD00A5EA1F /* ColorExtension.swift */; };
 		8EEC38C01DD9B5EF00A5EA1F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEC38BF1DD9B5EF00A5EA1F /* Color.swift */; };
-		99D99A541DD4924400CA09A6 /* DataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A531DD4924400CA09A6 /* DataValues.swift */; };
 		99D99A561DD4929100CA09A6 /* GroupedPointsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */; };
 		99D99A581DD5AD0A00CA09A6 /* CandleChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +53,10 @@
 		8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedChartVC.swift; sourceTree = "<group>"; };
 		8E6E24BF1DD3633A0074BD2F /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
+		8EBF25A51DD9D752001EF553 /* OxygenSaturationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxygenSaturationVC.swift; sourceTree = "<group>"; };
+		8EBF25AA1DD9D84C001EF553 /* DataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollection.swift; sourceTree = "<group>"; };
+		8EBF25AB1DD9D84C001EF553 /* DataValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValues.swift; sourceTree = "<group>"; };
+		8EBF25AE1DDA1859001EF553 /* OxygenSaturationSegmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxygenSaturationSegmentVC.swift; sourceTree = "<group>"; };
 		8ED5827A1DD1FD02006B329A /* GraphTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED5827D1DD1FD02006B329A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ED5827F1DD1FD02006B329A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +75,6 @@
 		8EEC38B91DD9B25A00A5EA1F /* RespiratoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RespiratoryVC.swift; sourceTree = "<group>"; };
 		8EEC38BC1DD9B5BD00A5EA1F /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		8EEC38BF1DD9B5EF00A5EA1F /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		99D99A531DD4924400CA09A6 /* DataValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValues.swift; sourceTree = "<group>"; };
 		99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupedPointsVC.swift; sourceTree = "<group>"; };
 		99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandleChartVC.swift; sourceTree = "<group>"; };
 		D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8EBF25A91DD9D84C001EF553 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8EBF25AA1DD9D84C001EF553 /* DataCollection.swift */,
+				8EBF25AB1DD9D84C001EF553 /* DataValues.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		8ED582711DD1FD02006B329A = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +153,8 @@
 				8EEC38BE1DD9B5EF00A5EA1F /* constants */,
 				8EEC38BB1DD9B5BD00A5EA1F /* extensions */,
 				99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */,
+				8EBF25A51DD9D752001EF553 /* OxygenSaturationVC.swift */,
+				8EBF25AE1DDA1859001EF553 /* OxygenSaturationSegmentVC.swift */,
 				8ED5827D1DD1FD02006B329A /* AppDelegate.swift */,
 				8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */,
 				8ED5827F1DD1FD02006B329A /* ViewController.swift */,
@@ -148,7 +165,6 @@
 				8ED582891DD1FD02006B329A /* LaunchScreen.storyboard */,
 				8ED5828C1DD1FD02006B329A /* Info.plist */,
 				8ED582841DD1FD02006B329A /* GraphTest.xcdatamodeld */,
-				99D99A531DD4924400CA09A6 /* DataValues.swift */,
 				99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */,
 				8EEC38B71DD9A5C000A5EA1F /* Start.storyboard */,
 				8EEC38B91DD9B25A00A5EA1F /* RespiratoryVC.swift */,
@@ -177,6 +193,7 @@
 		8EEC38BB1DD9B5BD00A5EA1F /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8EBF25A91DD9D84C001EF553 /* DataSource */,
 				8EEC38BC1DD9B5BD00A5EA1F /* ColorExtension.swift */,
 			);
 			path = extensions;
@@ -386,17 +403,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */,
+				8EBF25AD1DD9D84C001EF553 /* DataValues.swift in Sources */,
 				8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */,
 				8ED582861DD1FD02006B329A /* GraphTest.xcdatamodeld in Sources */,
 				8ED582801DD1FD02006B329A /* ViewController.swift in Sources */,
 				99D99A561DD4929100CA09A6 /* GroupedPointsVC.swift in Sources */,
 				8EEC38C01DD9B5EF00A5EA1F /* Color.swift in Sources */,
 				99D99A581DD5AD0A00CA09A6 /* CandleChartVC.swift in Sources */,
-				99D99A541DD4924400CA09A6 /* DataValues.swift in Sources */,
+				8EBF25A61DD9D752001EF553 /* OxygenSaturationVC.swift in Sources */,
 				8EEC38BA1DD9B25A00A5EA1F /* RespiratoryVC.swift in Sources */,
+				8EBF25AF1DDA1859001EF553 /* OxygenSaturationSegmentVC.swift in Sources */,
 				8ED5827E1DD1FD02006B329A /* AppDelegate.swift in Sources */,
 				8EEC38BD1DD9B5BD00A5EA1F /* ColorExtension.swift in Sources */,
 				8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */,
+				8EBF25AC1DD9D84C001EF553 /* DataCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

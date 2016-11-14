@@ -100,16 +100,16 @@ SATURATION</string>
             </objects>
             <point key="canvasLocation" x="199" y="964"/>
         </scene>
-        <!--View Controller-->
+        <!--Oxygen Saturation SegmentVC-->
         <scene sceneID="l9X-v6-4Xl">
             <objects>
-                <viewController id="2lq-Uc-RWE" sceneMemberID="viewController">
+                <viewController id="2lq-Uc-RWE" customClass="OxygenSaturationSegmentVC" customModule="GraphTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dbf-MV-FMw"/>
                         <viewControllerLayoutGuide type="bottom" id="uUM-Ja-4dK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WVX-CB-UIQ">
-                        <rect key="frame" x="0.0" y="0.0" width="985.5" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="985.5" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ijX-uN-FWu">
@@ -219,6 +219,9 @@ SATURATION</string>
                                     <constraint firstAttribute="height" constant="2" id="orL-70-IdQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NlE-NS-zby" customClass="LineChartView" customModule="Charts">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -226,16 +229,23 @@ SATURATION</string>
                             <constraint firstItem="ijX-uN-FWu" firstAttribute="top" secondItem="Dbf-MV-FMw" secondAttribute="bottom" constant="8" id="614-sU-lmm"/>
                             <constraint firstAttribute="trailing" secondItem="ijX-uN-FWu" secondAttribute="trailing" id="7nf-Cr-xPw"/>
                             <constraint firstAttribute="trailing" secondItem="saq-iH-fFy" secondAttribute="trailing" constant="20" id="9kE-4I-rzG"/>
+                            <constraint firstItem="uUM-Ja-4dK" firstAttribute="top" secondItem="NlE-NS-zby" secondAttribute="bottom" constant="8" id="CgI-Rh-Pgr"/>
                             <constraint firstItem="saq-iH-fFy" firstAttribute="top" secondItem="ijX-uN-FWu" secondAttribute="bottom" constant="8" id="avR-zA-sF8"/>
+                            <constraint firstAttribute="trailing" secondItem="NlE-NS-zby" secondAttribute="trailing" constant="8" id="dLZ-2c-ThE"/>
+                            <constraint firstItem="NlE-NS-zby" firstAttribute="leading" secondItem="WVX-CB-UIQ" secondAttribute="leading" constant="8" id="qk3-9I-cjR"/>
+                            <constraint firstItem="NlE-NS-zby" firstAttribute="top" secondItem="saq-iH-fFy" secondAttribute="bottom" constant="8" id="uBl-me-zJv"/>
                             <constraint firstItem="saq-iH-fFy" firstAttribute="leading" secondItem="WVX-CB-UIQ" secondAttribute="leading" constant="20" id="yRf-wv-2WN"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="985.5" height="500"/>
+                    <size key="freeformSize" width="985.5" height="900"/>
+                    <connections>
+                        <outlet property="chartView" destination="NlE-NS-zby" id="rYz-jx-6u9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63j-gG-xwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="964"/>
+            <point key="canvasLocation" x="905.71289062499989" y="963.6896046852122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xc4-72-u7t">
