@@ -2,7 +2,7 @@
 //  StartVC.swift
 //  GraphTest
 //
-//  Created by Neetin Sharma on 11/9/16.
+//  Created by Sujan Vaidya on 11/9/16.
 //  Copyright © 2016 3 Callistos. All rights reserved.
 //
 
@@ -12,8 +12,21 @@ class StartVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        /*
+        for i in 0..<14 {
+            print("Data at index: \(i)")
+            let data = DataCollection.getOxygenSaturationData(withIndex: i)
+            var desatData: [Int] = []
+            for i in 0..<data.count {
+                if data[i] < 85 {
+                    desatData.append(data[i])
+                }
+            }
+            print(desatData)
+            print("*********************")
+        }
+ */
     }
 
     override func didReceiveMemoryWarning() {

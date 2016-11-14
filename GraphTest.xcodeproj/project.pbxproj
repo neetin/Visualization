@@ -19,6 +19,7 @@
 		8ED5828B1DD1FD02006B329A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ED582891DD1FD02006B329A /* LaunchScreen.storyboard */; };
 		8ED582961DD1FD02006B329A /* GraphTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED582951DD1FD02006B329A /* GraphTestTests.swift */; };
 		8ED582A11DD1FD02006B329A /* GraphTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED582A01DD1FD02006B329A /* GraphTestUITests.swift */; };
+		995D54501DD9935F007C86C7 /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D544F1DD9935F007C86C7 /* DataCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		8ED5829C1DD1FD02006B329A /* GraphTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED582A01DD1FD02006B329A /* GraphTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTestUITests.swift; sourceTree = "<group>"; };
 		8ED582A21DD1FD02006B329A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		995D544F1DD9935F007C86C7 /* DataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataCollection.swift; path = DataSource/DataCollection.swift; sourceTree = "<group>"; };
 		D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26EC8CA202CEE37B46606D7 /* Pods-GraphTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 		8ED5827C1DD1FD02006B329A /* GraphTest */ = {
 			isa = PBXGroup;
 			children = (
+				995D544A1DD992F0007C86C7 /* DataSource */,
 				8ED5827D1DD1FD02006B329A /* AppDelegate.swift */,
 				8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */,
 				8ED5827F1DD1FD02006B329A /* ViewController.swift */,
@@ -151,6 +154,14 @@
 				8ED582A21DD1FD02006B329A /* Info.plist */,
 			);
 			path = GraphTestUITests;
+			sourceTree = "<group>";
+		};
+		995D544A1DD992F0007C86C7 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				995D544F1DD9935F007C86C7 /* DataCollection.swift */,
+			);
+			name = DataSource;
 			sourceTree = "<group>";
 		};
 		9CA1927DEEDF96CCC2CC5421 /* Frameworks */ = {
@@ -352,6 +363,7 @@
 				8ED582801DD1FD02006B329A /* ViewController.swift in Sources */,
 				8ED5827E1DD1FD02006B329A /* AppDelegate.swift in Sources */,
 				8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */,
+				995D54501DD9935F007C86C7 /* DataCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
