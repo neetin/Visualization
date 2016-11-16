@@ -10,6 +10,9 @@
 		00F301DC021521124D7F70A8 /* Pods_GraphTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */; };
 		8E00C7611DDAFFE700AFE8F2 /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00C7601DDAFFE700AFE8F2 /* CustomTabButton.swift */; };
 		8E00C7631DDB681400AFE8F2 /* MultilineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00C7621DDB681400AFE8F2 /* MultilineButton.swift */; };
+		8E1975851DDC9A5300EEC7DC /* DayNightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1975841DDC9A5300EEC7DC /* DayNightView.xib */; };
+		8E1975871DDC9AD100EEC7DC /* DayNightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1975861DDC9AD100EEC7DC /* DayNightView.swift */; };
+		8E1975891DDCA8DC00EEC7DC /* CheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1975881DDCA8DC00EEC7DC /* CheckVC.swift */; };
 		8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */; };
 		8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BF1DD3633A0074BD2F /* StartVC.swift */; };
 		8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */; };
@@ -54,6 +57,9 @@
 		4589DF04AD0B9AD9A7E08258 /* Pods-GraphTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest.release.xcconfig"; sourceTree = "<group>"; };
 		8E00C7601DDAFFE700AFE8F2 /* CustomTabButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
 		8E00C7621DDB681400AFE8F2 /* MultilineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultilineButton.swift; sourceTree = "<group>"; };
+		8E1975841DDC9A5300EEC7DC /* DayNightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayNightView.xib; sourceTree = "<group>"; };
+		8E1975861DDC9AD100EEC7DC /* DayNightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNightView.swift; sourceTree = "<group>"; };
+		8E1975881DDCA8DC00EEC7DC /* CheckVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckVC.swift; sourceTree = "<group>"; };
 		8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedChartVC.swift; sourceTree = "<group>"; };
 		8E6E24BF1DD3633A0074BD2F /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
@@ -171,6 +177,9 @@
 				8ED582841DD1FD02006B329A /* GraphTest.xcdatamodeld */,
 				99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */,
 				8EEC38B71DD9A5C000A5EA1F /* Start.storyboard */,
+				8E1975881DDCA8DC00EEC7DC /* CheckVC.swift */,
+				8E1975841DDC9A5300EEC7DC /* DayNightView.xib */,
+				8E1975861DDC9AD100EEC7DC /* DayNightView.swift */,
 				8EEC38B91DD9B25A00A5EA1F /* RespiratoryVC.swift */,
 				8E00C7601DDAFFE700AFE8F2 /* CustomTabButton.swift */,
 				8E00C7621DDB681400AFE8F2 /* MultilineButton.swift */,
@@ -336,6 +345,7 @@
 				8ED5828B1DD1FD02006B329A /* LaunchScreen.storyboard in Resources */,
 				8EEC38B81DD9A5C000A5EA1F /* Start.storyboard in Resources */,
 				8ED582881DD1FD02006B329A /* Assets.xcassets in Resources */,
+				8E1975851DDC9A5300EEC7DC /* DayNightView.xib in Resources */,
 				8ED582831DD1FD02006B329A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,9 +432,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E1975871DDC9AD100EEC7DC /* DayNightView.swift in Sources */,
 				8E00C7631DDB681400AFE8F2 /* MultilineButton.swift in Sources */,
 				8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */,
 				8EBF25AD1DD9D84C001EF553 /* DataValues.swift in Sources */,
+				8E1975891DDCA8DC00EEC7DC /* CheckVC.swift in Sources */,
 				8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */,
 				8ED582861DD1FD02006B329A /* GraphTest.xcdatamodeld in Sources */,
 				8ED582801DD1FD02006B329A /* ViewController.swift in Sources */,
