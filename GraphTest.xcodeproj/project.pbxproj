@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00F301DC021521124D7F70A8 /* Pods_GraphTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */; };
+		8E00C7611DDAFFE700AFE8F2 /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00C7601DDAFFE700AFE8F2 /* CustomTabButton.swift */; };
+		8E00C7631DDB681400AFE8F2 /* MultilineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00C7621DDB681400AFE8F2 /* MultilineButton.swift */; };
 		8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */; };
 		8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BF1DD3633A0074BD2F /* StartVC.swift */; };
 		8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		4589DF04AD0B9AD9A7E08258 /* Pods-GraphTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest.release.xcconfig"; sourceTree = "<group>"; };
+		8E00C7601DDAFFE700AFE8F2 /* CustomTabButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
+		8E00C7621DDB681400AFE8F2 /* MultilineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultilineButton.swift; sourceTree = "<group>"; };
 		8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedChartVC.swift; sourceTree = "<group>"; };
 		8E6E24BF1DD3633A0074BD2F /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */,
 				8EEC38B71DD9A5C000A5EA1F /* Start.storyboard */,
 				8EEC38B91DD9B25A00A5EA1F /* RespiratoryVC.swift */,
+				8E00C7601DDAFFE700AFE8F2 /* CustomTabButton.swift */,
+				8E00C7621DDB681400AFE8F2 /* MultilineButton.swift */,
 			);
 			path = GraphTest;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 				8ED582781DD1FD02006B329A /* Resources */,
 				052D3BEE42FA071752C96174 /* [CP] Embed Pods Frameworks */,
 				0FB0FB0A4C52389631D93672 /* [CP] Copy Pods Resources */,
+				8EBF25B01DDAC5F1001EF553 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -380,6 +387,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8EBF25B01DDAC5F1001EF553 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		F23389DC8E6D97B21E040DE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -402,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E00C7631DDB681400AFE8F2 /* MultilineButton.swift in Sources */,
 				8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */,
 				8EBF25AD1DD9D84C001EF553 /* DataValues.swift in Sources */,
 				8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */,
@@ -416,6 +437,7 @@
 				8ED5827E1DD1FD02006B329A /* AppDelegate.swift in Sources */,
 				8EEC38BD1DD9B5BD00A5EA1F /* ColorExtension.swift in Sources */,
 				8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */,
+				8E00C7611DDAFFE700AFE8F2 /* CustomTabButton.swift in Sources */,
 				8EBF25AC1DD9D84C001EF553 /* DataCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,7 +596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3callistos.GraphTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -590,7 +612,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3callistos.GraphTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
