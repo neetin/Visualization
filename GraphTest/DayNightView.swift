@@ -27,6 +27,11 @@ protocol DayNightDelegate {
   
   var view: UIView!
   var delegate: DayNightDelegate?
+  var shiftDate: Date? {
+    didSet {
+      dateLabel.text = shiftDate?.stringFromDate(Dateformat.toDisplayDateOnly)
+    }
+  }
   
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var nightButton: UIButton!

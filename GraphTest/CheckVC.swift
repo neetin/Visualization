@@ -12,11 +12,15 @@ class CheckVC: UIViewController {
 
   @IBOutlet weak var dayNIght: DayNightView!
   
+  @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
       dayNIght.isDaySelected = false
       dayNIght.delegate = self
+      
+      
+      addDayNightViews()
       
     }
 
@@ -25,17 +29,21 @@ class CheckVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  func addDayNightViews() {
+    var x = 8
+    let width = 150
+    for i: Int in 0 ..< 10 {
+      let view = DayNightView(frame: CGRect(x: x, y: 8, width: width, height: 96))
+      x += width + 8
+      view.delegate = self
+      view.isDaySelected = (i%2) == 0 ? true: false
+      view.shiftDate = Date()
+      scrollView.addSubview(view)
     }
-    */
-
+    
+    scrollView.contentSize = CGSize(width: x + 16, height: 104)
+    scrollView.isScrollEnabled = true
+  }
 }
 
 extension CheckVC: DayNightDelegate {

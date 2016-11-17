@@ -182,14 +182,22 @@ SPO2</string>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isDaySelected" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqF-4X-ezL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="aSM-mE-nQT"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EcD-Zw-sdt" firstAttribute="top" secondItem="hen-kv-NvN" secondAttribute="bottom" id="Bqo-Kr-f24"/>
+                            <constraint firstItem="eqF-4X-ezL" firstAttribute="trailing" secondItem="gdS-yP-nJS" secondAttribute="trailingMargin" id="VNF-HK-Y4z"/>
                             <constraint firstItem="YNO-YE-BEF" firstAttribute="trailing" secondItem="8KC-gb-3E1" secondAttribute="trailing" id="f43-bj-cy5"/>
                             <constraint firstItem="8KC-gb-3E1" firstAttribute="leading" secondItem="gdS-yP-nJS" secondAttribute="leading" constant="10" id="gmE-5h-2s4"/>
                             <constraint firstItem="8KC-gb-3E1" firstAttribute="top" secondItem="hen-kv-NvN" secondAttribute="bottom" constant="36" id="h6E-Hi-KMl"/>
                             <constraint firstItem="ceq-ow-4sK" firstAttribute="leading" secondItem="EcD-Zw-sdt" secondAttribute="trailing" constant="8" id="jI6-eh-sDX"/>
+                            <constraint firstItem="eqF-4X-ezL" firstAttribute="top" secondItem="YNO-YE-BEF" secondAttribute="bottom" constant="14" id="oKe-Ok-BkW"/>
+                            <constraint firstItem="eqF-4X-ezL" firstAttribute="leading" secondItem="gdS-yP-nJS" secondAttribute="leading" constant="16" id="oSN-BI-Nlm"/>
                             <constraint firstItem="EcD-Zw-sdt" firstAttribute="leading" secondItem="gdS-yP-nJS" secondAttribute="leadingMargin" id="spj-l2-sN7"/>
                             <constraint firstItem="ceq-ow-4sK" firstAttribute="top" secondItem="hen-kv-NvN" secondAttribute="bottom" id="vYG-xM-bZo"/>
                             <constraint firstItem="YNO-YE-BEF" firstAttribute="top" secondItem="8KC-gb-3E1" secondAttribute="bottom" constant="31" id="xi5-7E-dcJ"/>
@@ -198,11 +206,12 @@ SPO2</string>
                     </view>
                     <connections>
                         <outlet property="dayNIght" destination="YNO-YE-BEF" id="tQV-a5-G73"/>
+                        <outlet property="scrollView" destination="eqF-4X-ezL" id="CPZ-ZS-KrV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W14-RF-X08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2817" y="814"/>
+            <point key="canvasLocation" x="2816.8000000000002" y="813.64317841079469"/>
         </scene>
         <!--Oxygen Saturation SegmentVC-->
         <scene sceneID="l9X-v6-4Xl">
