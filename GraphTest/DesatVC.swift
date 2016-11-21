@@ -9,13 +9,14 @@
 import UIKit
 import Charts
 
-class DesatVC: UIViewController {
+class DesatVC: UIViewController, ChartViewDelegate {
 
     @IBOutlet weak var chartView: CombinedChartView!
     weak var valueFormatter: IAxisValueFormatter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        chartView.delegate = self
         valueFormatter = self
         drawLineChart(DataCollection.desaturationLabels)
     }
@@ -40,11 +41,33 @@ class DesatVC: UIViewController {
         }
         
         let candleChartDataSet = CandleChartDataSet(values: dataEntries1, label: "Company 1")
-        candleChartDataSet.colors = [UIColor.red]
+        candleChartDataSet.colors = [UIColor.red, UIColor.green]
         candleChartDataSet.shadowColor = UIColor.white
+        candleChartDataSet.drawValuesEnabled = false
+        candleChartDataSet.highlightEnabled = false
         
         let lineChartDataSet = LineChartDataSet(values: dataEntries2, label: "Company 2")
         lineChartDataSet.colors = [UIColor.green]
+        lineChartDataSet.circleHoleRadius = 0
+        lineChartDataSet.highlightEnabled = false
+        
+        let rightYAxis = chartView.getAxis(.right)
+        rightYAxis.axisMaximum = 25 // based on the desaturation values
+        rightYAxis.axisMinimum = 0
+        
+        let leftYAxis = chartView.getAxis(.left)
+        leftYAxis.axisMaximum = 25 // based on the desaturation values
+        leftYAxis.axisMinimum = 0
+        
+        let xAxis = chartView.xAxis
+        xAxis.valueFormatter = valueFormatter
+        xAxis.labelPosition = .bottom
+        xAxis.axisMinimum = -0.5 // Fixes for candlestick
+        xAxis.axisMaximum = 13.5 // Fixes for candlestick
+//        xAxis.forceLabelsEnabled = true
+//        xAxis.centerAxisLabelsEnabled = true
+        xAxis.entries = [1.5, 3.5, 5.5, 7.5, 9.5, 11.5]
+        //        xAxis.entries = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
         
         let chartData = CombinedChartData()
         chartData.candleData = CandleChartData(dataSet: candleChartDataSet)
@@ -54,29 +77,22 @@ class DesatVC: UIViewController {
         chartView.drawOrder = [DrawOrder.line.rawValue, DrawOrder.candle.rawValue]
         chartView.chartDescription?.text = ""
         
-        let rightYAxis = chartView.getAxis(.right)
-        rightYAxis.axisMaximum = 21
-        rightYAxis.axisMinimum = 0
-        
-        let leftYAxis = chartView.getAxis(.left)
-        leftYAxis.axisMaximum = 21
-        leftYAxis.axisMinimum = 0
-        
-        chartView.xAxis.axisMinimum = -0.5
-        chartView.xAxis.axisMaximum = 12
-        
-        let xAxis = chartView.xAxis
-        xAxis.valueFormatter = valueFormatter
-        xAxis.drawLabelsEnabled = true
-        xAxis.axisMinimum = -0.5
-        xAxis.axisMaximum = 12
-//        xAxis.entries = [1.5, 3.5, 5.5, 7.5, 9.5, 11.5]
+        // unnecessary gesture
+        chartView.scaleXEnabled = false
+        chartView.scaleYEnabled = false
+//        chartView.highlightPerTapEnabled = false
+//        chartView.highlightFullBarEnabled = false
+        chartView.legend.enabled = false
+    }
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print(entry)
     }
 }
 
 extension DesatVC: IAxisValueFormatter {
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return DataCollection.desaturationLabels(Int(value))
+        return DataCollection.desaturationLabels[Int(value)]
     }
 }

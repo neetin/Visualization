@@ -203,5 +203,6 @@ struct DataCollection {
         return desaturationData
     }
     
-    static let desaturationLabels = ["Nov7", "", "Nov8", "", "Nov9", "", "Nov10", "", "Nov11", "", "Nov12", "", "Nov13", ""]
+    // Just show one value based in xAxis label
+    static let desaturationLabels: [String] = ["Nov7", "", "Nov8", "", "Nov9", "", "Nov10", "", "Nov11", "", "Nov12", "", "Nov13", ""]
 }
