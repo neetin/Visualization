@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 class CandleChartVC: UIViewController {
-    @IBOutlet var chartView: CombinedChartView!
+    @IBOutlet var chartView: CandleStickChartView!
 
     weak var valueFormatter: IAxisValueFormatter!
     override func viewDidLoad() {
@@ -31,28 +31,15 @@ class CandleChartVC: UIViewController {
         let candleChartDataSet = CandleChartDataSet(values: dataEntries, label: "Company 2")
         candleChartDataSet.colors = [UIColor.red, UIColor.green]
         
-        var dataEntries1: [ChartDataEntry] = []
-        for i in 0..<dataPoints.count {
-            let dataEntry =  ChartDataEntry(x: Double(i), y: values[i])
-            dataEntries1.append(dataEntry)
-        }
-        let lineChartDataSet = LineChartDataSet(values: dataEntries1, label: "Company 1")
-        lineChartDataSet.colors = [UIColor.red]
-        
-        let chartData = CombinedChartData()
-        chartData.candleData = CandleChartData(dataSet: candleChartDataSet)
-        chartData.lineData = LineChartData(dataSet: lineChartDataSet)
-        
-        chartView.data = chartData
-        
+        chartView.data = CandleChartData(dataSet: candleChartDataSet)
+    
         let xAxis = chartView.xAxis
         xAxis.valueFormatter = valueFormatter
-        xAxis.granularityEnabled = true
-        xAxis.granularity = 0
-        xAxis.labelPosition = .topInside
+//        xAxis.granularityEnabled = true
+//        xAxis.granularity = 0
+//        xAxis.labelPosition = .topInside
         
         chartView.chartDescription?.text = ""
-        chartView.drawOrder = [DrawOrder.candle.rawValue, DrawOrder.line.rawValue]
     }
 }
 

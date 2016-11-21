@@ -164,11 +164,6 @@ struct DataCollection {
         }
     }
     
-    static func getDesaturationEpisodes() -> [Int] {
-        let desaturationData = [12, 18, 14, 16, 13, 14, 11, 17, 15, 15, 20, 8, 9, 10]
-        return desaturationData
-    }
-    
     static func getDayShiftLabels() -> [String] {
         let timeLabel = ["7am", "7.05am", "7.10am", "7.15am", "7.20am", "7.25am", "7.30am", "7.35am", "7.40am", "7.45am", "7.50am", "7.55am",
                                 "8am", "7.05am", "8.10am", "8.15am", "8.20am", "8.25am", "8.30am", "8.35am", "8.40am", "8.45am", "8.50am", "8.55am",
@@ -202,4 +197,11 @@ struct DataCollection {
                          "7am"]
         return timeLabel
     }
+    
+    static func getDesaturationEpisodes() -> [Double] {
+        let desaturationData: [Double] = [12, 18, 14, 16, 13, 14, 11, 17, 15, 15, 20, 8, 9, 10]
+        return desaturationData
+    }
+    
+    static let desaturationLabels = ["Nov7", "", "Nov8", "", "Nov9", "", "Nov10", "", "Nov11", "", "Nov12", "", "Nov13", ""]
 }

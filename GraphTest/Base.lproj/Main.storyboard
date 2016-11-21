@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MCP-xp-Ii8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11760" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mxG-GN-RXc">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11755"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,6 +41,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1316" y="44.527736131934034"/>
+        </scene>
+        <!--DesatVC-->
+        <scene sceneID="GY7-FM-g7Y">
+            <objects>
+                <viewController id="mxG-GN-RXc" customClass="DesatVC" customModule="GraphTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JwU-Zy-jAg"/>
+                        <viewControllerLayoutGuide type="bottom" id="vbZ-Es-zYC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0GT-KF-sip">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVY-no-BNj" customClass="CombinedChartView" customModule="Charts">
+                                <rect key="frame" x="36" y="36" width="952" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uVY-no-BNj" firstAttribute="top" secondItem="JwU-Zy-jAg" secondAttribute="bottom" constant="16" id="2rf-gj-6Tr"/>
+                            <constraint firstItem="uVY-no-BNj" firstAttribute="leading" secondItem="0GT-KF-sip" secondAttribute="leadingMargin" constant="16" id="4fR-hO-ds6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uVY-no-BNj" secondAttribute="trailing" constant="16" id="Smh-Ed-rUK"/>
+                            <constraint firstItem="vbZ-Es-zYC" firstAttribute="top" secondItem="uVY-no-BNj" secondAttribute="bottom" constant="16" id="hjT-gm-iZv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="uVY-no-BNj" id="sec-7W-U1V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="46E-P5-Iqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173" y="177"/>
+        </scene>
+        <!--Candle ChartVC-->
+        <scene sceneID="ADr-HX-xCD">
+            <objects>
+                <viewController id="FeD-WD-2tv" customClass="CandleChartVC" customModule="GraphTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O2Y-ub-Kn5"/>
+                        <viewControllerLayoutGuide type="bottom" id="b2O-Cq-LBX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jWg-HE-VEv" customClass="CandleStickChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="jWg-HE-VEv" id="itt-c4-8MA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fpc-YH-DIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2193" y="964"/>
         </scene>
         <!--Oxygen SaturationVC-->
         <scene sceneID="CfN-dq-Kwr">
