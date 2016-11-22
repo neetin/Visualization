@@ -16,6 +16,8 @@ class OxygenSaturationSegmentVC: UIViewController {
   @IBOutlet weak var chartView: LineChartView!
   let minTarget: Double = 85
   let maxTarget: Double = 92
+  var didAppear = false
+  var customView : CustomView!
   
   weak var axisFormatDelegate: IAxisValueFormatter?
   
@@ -25,6 +27,23 @@ class OxygenSaturationSegmentVC: UIViewController {
     axisFormatDelegate = self
     drawLineChart(dataPoints: DataCollection.getDayShiftLabels(), values: DataCollection.getOxygenSaturationData(withIndex: 0))
   }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if didAppear {
+            let rectForView = getPosition()
+            customView.frame = rectForView
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let rectForView = getPosition()
+        customView = CustomView(frame: rectForView)//(frame: CGRect(x: 22.1582, y: 121.88, width: chartView.frame.width - 44.3164, height: 200.81))
+        customView.backgroundColor = UIColor.clear
+        chartView.insertSubview(customView, at: 0)
+        didAppear = true
+    }
   
   func drawLineChart(dataPoints: [String], values: [Double]) {
     chartView.noDataText = "You need to provide data for the chart."
@@ -86,6 +105,45 @@ class OxygenSaturationSegmentVC: UIViewController {
     yAxis.addLimitLine(minLine)
     
   }
+    
+    func getPosition() -> CGRect {
+        var positions: [CGPoint] = []
+        let yAxis = chartView.getAxis(.right)
+        let transformer = chartView.getTransformer(forAxis: .right)
+        
+        var limitLines = yAxis.limitLines
+        let trans = transformer.valueToPixelMatrix
+        
+        var position = CGPoint(x: 0.0, y: 0.0)
+        
+        for i in 0 ..< limitLines.count
+        {
+            let l = limitLines[i]
+            
+            if !l.isEnabled
+            {
+                continue
+            }
+            
+            position.x = 0.0
+            position.y = CGFloat(l.limit)
+            position = position.applying(trans)
+            positions.append(position)
+        }
+        let positionX = positions[0].x
+        var positionY: CGFloat = 0
+        var height: CGFloat = 0
+        if positions[0].y < positions[1].y {
+            positionY = positions[0].y
+            height = positions[1].y - positions[0].y
+        } else {
+            positionY = positions[1].y
+            height = positions[0].y - positions[1].y
+        }
+        let rect = CGRect(x: positionX, y: positionY, width: chartView.frame.width - (2 * positionX), height: height)
+        return rect
+    }
+
   
 }
 
