@@ -6,7 +6,8 @@ target 'GraphTest' do
   use_frameworks!
 
   # Pods for RealmAndCharts-example
-  pod 'Charts', :git => 'https://github.com/danielgindi/Charts.git', :branch => 'master'
+  #pod 'Charts', :git => 'https://github.com/vsujan92/Charts.git', :branch => 'master'
+  pod 'Charts', :path => '/Users/vsujan/Documents/sujan/Charts'
   pod 'RealmSwift', '~> 2.0.2'
 
   post_install do |installer|

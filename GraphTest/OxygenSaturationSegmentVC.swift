@@ -47,7 +47,6 @@ class OxygenSaturationSegmentVC: UIViewController {
   
   func drawLineChart(dataPoints: [String], values: [Double]) {
     chartView.noDataText = "You need to provide data for the chart."
-    
     var dataEntries: [ChartDataEntry] = []
     
     for i in 0..<dataPoints.count {
