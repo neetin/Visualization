@@ -16,7 +16,7 @@ class RespiratoryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSegmentUI()
-        setupInitialView()
+        setupInitialView(withName: "OxygenSaturationSegmentVC")
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,16 +40,20 @@ class RespiratoryVC: UIViewController {
     segmentControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
     
   }
-    func setupInitialView() {
+    func setupInitialView(withName: String) {
         let storyboard = UIStoryboard(name: "Start", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "OxygenSaturationSegmentVC")
+        let vc = storyboard.instantiateViewController(withIdentifier: withName)
+        
+        self.addChildViewController(vc)
+        vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: containerView.frame.size.height)
         containerView.addSubview(vc.view)
+        vc.didMove(toParentViewController: self)
     }
-    
+
     func selectionDidChange(_ sender: UISegmentedControl) {
         configureView()
     }
-    
+
     func configureView() {
         if segmentControl.selectedSegmentIndex == 2 {
             configureVC(withName: "DesatVC")
@@ -57,12 +61,15 @@ class RespiratoryVC: UIViewController {
             configureVC(withName: "OxygenSaturationSegmentVC")
         }
     }
-    
+
     func configureVC(withName: String) {
         let storyboard = UIStoryboard(name: "Start", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: withName)
-        containerView.addSubview(vc.view)
         
+        self.addChildViewController(vc)
+        vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: containerView.frame.size.height)
+        containerView.addSubview(vc.view)
+        vc.didMove(toParentViewController: self)
     }
   
 }
