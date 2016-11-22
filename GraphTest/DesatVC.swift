@@ -28,14 +28,14 @@ class DesatVC: UIViewController, ChartViewDelegate {
     
     func drawLineChart(_ dataPoints: [String]) {
         chartView.noDataText = "You need to provide data for the chart."
-        
+        chartView.enableCustomXEntries = true
         let values: [Double] = DataCollection.getDesaturationEpisodes()
         
         var dataEntries1: [CandleChartDataEntry] = []
         var dataEntries2: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 2, close: values[i] + 2)
+            let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 3, close: values[i] + 3)
             dataEntry.y = values[i]
             dataEntries1.append(dataEntry)
         }
@@ -52,6 +52,7 @@ class DesatVC: UIViewController, ChartViewDelegate {
 //        candleChartDataSet.shadowColorSameAsCandle = true
         candleChartDataSet.drawValuesEnabled = false
         candleChartDataSet.highlightEnabled = false
+        candleChartDataSet.setFill = true
         
         let lineChartDataSet = LineChartDataSet(values: dataEntries2, label: "Company 2")
         lineChartDataSet.colors = [lineColor]
