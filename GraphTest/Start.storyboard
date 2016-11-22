@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CD2-Hv-H1N">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CD2-Hv-H1N">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,16 +18,18 @@
                         <viewControllerLayoutGuide type="bottom" id="ggU-vD-6JP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="t8A-Lu-d6u">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lungs" translatesAutoresizingMaskIntoConstraints="NO" id="EBb-Ra-IMA">
+                                <rect key="frame" x="20" y="72" width="66" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="5JO-Nm-gsa"/>
                                     <constraint firstAttribute="height" constant="66" id="eaO-36-0uQ"/>
                                 </constraints>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OMp-De-ufK">
+                                <rect key="frame" x="20" y="146" width="984" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="Whg-Sd-ub6"/>
                                     <constraint firstAttribute="width" constant="984" id="u3u-uQ-sXm"/>
@@ -52,6 +58,7 @@ SATURATION</string>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESPIRATORY SYSTEM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2v-Ae-rp7">
+                                <rect key="frame" x="94" y="83" width="294" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="294" id="3c8-Kb-Gtz"/>
                                     <constraint firstAttribute="height" constant="44" id="ILr-gC-KNE"/>
@@ -61,6 +68,7 @@ SATURATION</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STABILITY FACTORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYU-Z5-Hs9">
+                                <rect key="frame" x="405" y="94.5" width="159" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="159" id="Wbq-hp-E5u"/>
                                     <constraint firstAttribute="height" constant="21" id="v28-aA-NBu"/>
@@ -70,9 +78,7 @@ SATURATION</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="man-yF-OtJ">
-                                <connections>
-                                    <segue destination="2lq-Uc-RWE" kind="embed" id="KYr-9I-2VX"/>
-                                </connections>
+                                <rect key="frame" x="20" y="262" width="984" height="486"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,6 +99,7 @@ SATURATION</string>
                     </view>
                     <navigationItem key="navigationItem" id="MrI-kc-Z02"/>
                     <connections>
+                        <outlet property="containerView" destination="man-yF-OtJ" id="10X-D1-NuS"/>
                         <outlet property="segmentControl" destination="OMp-De-ufK" id="cT6-rp-lpj"/>
                     </connections>
                 </viewController>
@@ -103,7 +110,7 @@ SATURATION</string>
         <!--Oxygen Saturation SegmentVC-->
         <scene sceneID="l9X-v6-4Xl">
             <objects>
-                <viewController id="2lq-Uc-RWE" customClass="OxygenSaturationSegmentVC" customModule="GraphTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OxygenSaturationSegmentVC" id="2lq-Uc-RWE" customClass="OxygenSaturationSegmentVC" customModule="GraphTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dbf-MV-FMw"/>
                         <viewControllerLayoutGuide type="bottom" id="uUM-Ja-4dK"/>
@@ -113,12 +120,16 @@ SATURATION</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ijX-uN-FWu">
+                                <rect key="frame" x="8" y="28" width="977.5" height="44"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-wP-3c8">
+                                        <rect key="frame" x="0.0" y="0.0" width="977.5" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="x7E-eI-rEH">
+                                                <rect key="frame" x="0.0" y="0.0" width="547" height="44"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oxygen Saturation % (SPO2)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zK9-yD-SQd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="CWu-M0-lgN"/>
                                                             <constraint firstAttribute="width" constant="320" id="rK0-rl-AV2"/>
@@ -128,6 +139,7 @@ SATURATION</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Range: 85 - 92" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxE-gK-nRn">
+                                                        <rect key="frame" x="320" y="0.0" width="227" height="44"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -138,15 +150,19 @@ SATURATION</string>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRM-vV-dXh">
+                                                <rect key="frame" x="547" y="0.0" width="430.5" height="44"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="M11-LO-QAG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6P-YP-dPH">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="22"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/03/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZO-m7-Dp9">
+                                                                <rect key="frame" x="0.0" y="22" width="92.5" height="22"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <color key="textColor" red="0.40000000000000002" green="0.34509803921568627" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -154,13 +170,16 @@ SATURATION</string>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rd9-zj-LEM">
+                                                        <rect key="frame" x="107.5" y="0.0" width="107.5" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="247" text="Shift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP4-Lb-JEr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="23.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqD-mn-lh6">
+                                                                <rect key="frame" x="0.0" y="23.5" width="31.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <color key="textColor" red="0.40000000000000002" green="0.34509803921568627" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -168,13 +187,16 @@ SATURATION</string>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2wG-u2-MtY">
+                                                        <rect key="frame" x="215" y="0.0" width="108" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Shift Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0H2-KW-sys">
+                                                                <rect key="frame" x="0.0" y="0.0" width="108" height="23.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjv-iE-Z7b">
+                                                                <rect key="frame" x="0.0" y="23.5" width="108" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <color key="textColor" red="0.40000000000000002" green="0.34509803921568627" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -182,13 +204,16 @@ SATURATION</string>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3oO-1i-77g">
+                                                        <rect key="frame" x="323" y="0.0" width="107.5" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Shift End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qv-eW-h7A">
+                                                                <rect key="frame" x="0.0" y="0.0" width="107.5" height="23.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="7 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqg-r0-Hhn">
+                                                                <rect key="frame" x="0.0" y="23.5" width="107.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <color key="textColor" red="0.40000000000000002" green="0.34509803921568627" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -214,12 +239,14 @@ SATURATION</string>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saq-iH-fFy">
+                                <rect key="frame" x="20" y="80" width="945.5" height="2"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="orL-70-IdQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NlE-NS-zby" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="90" width="969.5" height="802"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -264,6 +291,39 @@ SATURATION</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGB-LY-4nI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="198.6328125" y="203.80673499267934"/>
+        </scene>
+        <!--DesatVC-->
+        <scene sceneID="sAE-25-r2i">
+            <objects>
+                <viewController storyboardIdentifier="DesatVC" id="fIf-Aa-sm4" customClass="DesatVC" customModule="GraphTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9CZ-1E-IVs"/>
+                        <viewControllerLayoutGuide type="bottom" id="bdB-0a-6s5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mmk-Sf-qAQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AT6-0K-whf" customClass="CombinedChartView" customModule="Charts">
+                                <rect key="frame" x="36" y="36" width="952" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="AT6-0K-whf" secondAttribute="trailing" constant="16" id="4LD-S5-k3S"/>
+                            <constraint firstItem="AT6-0K-whf" firstAttribute="leading" secondItem="Mmk-Sf-qAQ" secondAttribute="leadingMargin" constant="16" id="MGX-rH-iLQ"/>
+                            <constraint firstItem="bdB-0a-6s5" firstAttribute="top" secondItem="AT6-0K-whf" secondAttribute="bottom" constant="16" id="nOe-VW-p00"/>
+                            <constraint firstItem="AT6-0K-whf" firstAttribute="top" secondItem="9CZ-1E-IVs" secondAttribute="bottom" constant="16" id="yW6-7k-MsX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="AT6-0K-whf" id="RZc-fu-Wnj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V34-gq-epD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="1696"/>
         </scene>
     </scenes>
     <resources>

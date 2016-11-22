@@ -12,10 +12,11 @@ class RespiratoryVC: UIViewController {
 
   @IBOutlet weak var segmentControl: UISegmentedControl!
   
+    @IBOutlet weak var containerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureSegmentUI()
+        setupInitialView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +28,6 @@ class RespiratoryVC: UIViewController {
   func configureSegmentUI() {
     
 //    segmentControl.frame = CGRect(x: 0, y: 0, width: 800, height: 200)
-    
     for segment in segmentControl.subviews {
       for label in segment.subviews {
         if label.isKind(of: UILabel.self) {
@@ -37,8 +37,32 @@ class RespiratoryVC: UIViewController {
         }
       }
     }
+    segmentControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
     
   }
-  
+    func setupInitialView() {
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "OxygenSaturationSegmentVC")
+        containerView.addSubview(vc.view)
+    }
+    
+    func selectionDidChange(_ sender: UISegmentedControl) {
+        configureView()
+    }
+    
+    func configureView() {
+        if segmentControl.selectedSegmentIndex == 2 {
+            configureVC(withName: "DesatVC")
+        } else {
+            configureVC(withName: "OxygenSaturationSegmentVC")
+        }
+    }
+    
+    func configureVC(withName: String) {
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: withName)
+        containerView.addSubview(vc.view)
+        
+    }
   
 }

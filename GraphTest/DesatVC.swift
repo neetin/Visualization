@@ -52,7 +52,6 @@ class DesatVC: UIViewController, ChartViewDelegate {
 //        candleChartDataSet.shadowColorSameAsCandle = true
         candleChartDataSet.drawValuesEnabled = false
         candleChartDataSet.highlightEnabled = false
-        candleChartDataSet.fillBackground = true
         
         let lineChartDataSet = LineChartDataSet(values: dataEntries2, label: "Company 2")
         lineChartDataSet.colors = [lineColor]
