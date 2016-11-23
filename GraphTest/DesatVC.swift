@@ -18,11 +18,13 @@ class DesatVC: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var chartView: CombinedChartView!
     weak var valueFormatter: IAxisValueFormatter!
+    weak var customValueFormatter: IValueFormatter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         chartView.delegate = self
         valueFormatter = self
+        customValueFormatter = self
         drawLineChart(DataCollection.desaturationLabels)
     }
     
@@ -59,8 +61,9 @@ class DesatVC: UIViewController, ChartViewDelegate {
         lineChartDataSet.circleHoleRadius = 0
         lineChartDataSet.circleColors = [lineColor]
         lineChartDataSet.highlightEnabled = false
+        lineChartDataSet.valueFormatter = customValueFormatter
         lineChartDataSet.valueColors = [lineColor]
-        lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 18)
+        lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
         
         let rightYAxis = chartView.getAxis(.right)
         rightYAxis.axisMaximum = 25 // based on the desaturation values
@@ -111,5 +114,12 @@ extension DesatVC: IAxisValueFormatter {
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         return DataCollection.desaturationLabels[Int(value)]
+    }
+}
+
+extension DesatVC: IValueFormatter {
+    
+    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        return String.localizedStringWithFormat("%.0f", entry.y)
     }
 }

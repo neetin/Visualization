@@ -20,11 +20,13 @@ class OxygenSaturationSegmentVC: UIViewController {
   var customView : CustomView!
   
   weak var axisFormatDelegate: IAxisValueFormatter?
+    var valueFormatter: IValueFormatter!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     axisFormatDelegate = self
+    valueFormatter = self
     drawLineChart(dataPoints: DataCollection.getDayShiftLabels(), values: DataCollection.getOxygenSaturationData(withIndex: 0))
   }
     
@@ -84,10 +86,11 @@ class OxygenSaturationSegmentVC: UIViewController {
     lineChartDataSet.colors = [UIColor.blue]
     lineChartDataSet.valueColors = [UIColor.red]
     lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
+    lineChartDataSet.valueFormatter = valueFormatter
     
     // Limit line
     let yAxis = chartView.getAxis(.right)
-    let maxLine = ChartLimitLine(limit: maxTarget, label: String(maxTarget))
+    let maxLine = ChartLimitLine(limit: maxTarget, label: String.localizedStringWithFormat("%.0f", maxTarget))
     maxLine.labelPosition = .leftTop
     maxLine.lineDashLengths = [CGFloat(15)]
     maxLine.lineColor = UIColor.red
@@ -95,7 +98,7 @@ class OxygenSaturationSegmentVC: UIViewController {
     maxLine.valueTextColor = UIColor.black
     yAxis.addLimitLine(maxLine)
     
-    let minLine = ChartLimitLine(limit: minTarget, label: String(minTarget))
+    let minLine = ChartLimitLine(limit: minTarget, label: String.localizedStringWithFormat("%.0f", minTarget))
     minLine.labelPosition = .leftBottom
     minLine.lineDashLengths = [CGFloat(15)]
     minLine.lineColor = UIColor.red
@@ -151,4 +154,11 @@ extension OxygenSaturationSegmentVC: IAxisValueFormatter {
   func stringForValue(_ value: Double, axis: AxisBase?) -> String {
     return DataCollection.getDayShiftLabels()[Int(value)]
   }
+}
+
+extension OxygenSaturationSegmentVC: IValueFormatter {
+    
+    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        return String.localizedStringWithFormat("%.0f", entry.y)
+    }
 }
