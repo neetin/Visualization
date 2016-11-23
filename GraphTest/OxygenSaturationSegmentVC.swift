@@ -102,7 +102,7 @@ class OxygenSaturationSegmentVC: UIViewController {
     maxLine.lineDashLengths = [CGFloat(15)]
     maxLine.lineColor = lineColor
     maxLine.lineWidth = 4
-    maxLine.valueTextColor = targetValueColor
+    maxLine.valueTextColor = lineColor
     yAxis.addLimitLine(maxLine)
     
     chartView.drawBordersEnabled = true
@@ -120,7 +120,7 @@ class OxygenSaturationSegmentVC: UIViewController {
     minLine.lineDashLengths = [CGFloat(15)]
     minLine.lineColor = lineColor
     minLine.lineWidth = 4
-    minLine.valueTextColor = targetValueColor
+    minLine.valueTextColor = lineColor
     yAxis.addLimitLine(minLine)
     
   }
