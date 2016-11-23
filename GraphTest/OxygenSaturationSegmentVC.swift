@@ -18,6 +18,9 @@ class OxygenSaturationSegmentVC: UIViewController {
   var didAppear = false
   var customView : CustomView!
   
+  let targetValueColor = UIColor(colorLiteralRed: 180/255, green: 155/255, blue: 224/255, alpha: 1)
+  let lineColor = UIColor(colorLiteralRed: 178/255, green: 152/255, blue: 223/255, alpha: 1)
+  
   weak var axisFormatDelegate: IAxisValueFormatter?
   var valueFormatter: IValueFormatter!
   
@@ -65,6 +68,8 @@ class OxygenSaturationSegmentVC: UIViewController {
     xAxis.granularityEnabled = true
     xAxis.granularity = 12
     xAxis.labelPosition = .bottom
+    xAxis.labelTextColor = UIColor.gray
+    xAxis.labelFont = UIFont.systemFont(ofSize: 16)
     
     // zooming feature
     chartView.zoom(scaleX: 3.5, scaleY: 0, x: 0, y: 0)// zoom so that the values can be shown
@@ -81,30 +86,41 @@ class OxygenSaturationSegmentVC: UIViewController {
     chartView.borderColor = UIColor.black
     chartView.legend.enabled = false
     
-    lineChartDataSet.circleColors = [UIColor.blue]
+    lineChartDataSet.circleColors = [lineColor]
     lineChartDataSet.drawCircleHoleEnabled = false
     lineChartDataSet.circleRadius = 4
-    lineChartDataSet.colors = [UIColor.blue]
-    lineChartDataSet.valueColors = [UIColor.red]
-    lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
+    lineChartDataSet.colors = [lineColor]
+    lineChartDataSet.valueColors = [UIColor.black]
+    lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 16, weight: 4)
     lineChartDataSet.valueFormatter = valueFormatter
+    lineChartDataSet.lineWidth = 2
     
     // Limit line
     let yAxis = chartView.getAxis(.right)
     let maxLine = ChartLimitLine(limit: maxTarget, label: String.localizedStringWithFormat("%.0f", maxTarget))
     maxLine.labelPosition = .leftTop
     maxLine.lineDashLengths = [CGFloat(15)]
-    maxLine.lineColor = UIColor.red
+    maxLine.lineColor = lineColor
     maxLine.lineWidth = 4
-    maxLine.valueTextColor = UIColor.black
+    maxLine.valueTextColor = targetValueColor
     yAxis.addLimitLine(maxLine)
+    
+    chartView.drawBordersEnabled = true
+    chartView.borderColor = UIColor.gray
+    chartView.getAxis(.right).labelTextColor = UIColor.gray
+    chartView.getAxis(.right).labelFont = UIFont.systemFont(ofSize: 16)
+    chartView.getAxis(.right).gridColor = UIColor.gray
+    
+    chartView.getAxis(.left).labelTextColor = UIColor.gray
+    chartView.getAxis(.left).gridColor = UIColor.gray
+    chartView.getAxis(.left).labelFont = UIFont.systemFont(ofSize: 16)
     
     let minLine = ChartLimitLine(limit: minTarget, label: String.localizedStringWithFormat("%.0f", minTarget))
     minLine.labelPosition = .leftBottom
     minLine.lineDashLengths = [CGFloat(15)]
-    minLine.lineColor = UIColor.red
+    minLine.lineColor = lineColor
     minLine.lineWidth = 4
-    minLine.valueTextColor = UIColor.black
+    minLine.valueTextColor = targetValueColor
     yAxis.addLimitLine(minLine)
     
   }

@@ -74,18 +74,30 @@ class DesatVC: UIViewController, ChartViewDelegate {
     rightYAxis.granularityEnabled = true
     rightYAxis.granularity = 10
     
+    rightYAxis.labelTextColor = UIColor.gray
+    rightYAxis.labelFont = UIFont.systemFont(ofSize: 16)
+    rightYAxis.gridColor = UIColor.gray
+    
     let leftYAxis = chartView.getAxis(.left)
     leftYAxis.axisMaximum = 30 // based on the desaturation values
     leftYAxis.axisMinimum = 0
     leftYAxis.granularityEnabled = true
     leftYAxis.granularity = 10
     
+    leftYAxis.labelTextColor = UIColor.gray
+    leftYAxis.gridColor = UIColor.gray
+    leftYAxis.labelFont = UIFont.systemFont(ofSize: 16)
+
+  
     let xAxis = chartView.xAxis
     xAxis.valueFormatter = valueFormatter
     xAxis.labelPosition = .bottom
     
     xAxis.spaceMin = 0.5
     xAxis.spaceMax = 0.5
+    xAxis.labelTextColor = UIColor.gray
+    xAxis.gridColor = UIColor.gray
+    xAxis.labelFont = UIFont.systemFont(ofSize: 16)
     
 //        xAxis.axisMinimum = -0.5 // Fixes for candlestick
 //        xAxis.axisMaximum = 13.5 // Fixes for candlestick
@@ -111,6 +123,9 @@ class DesatVC: UIViewController, ChartViewDelegate {
 //        chartView.highlightFullBarEnabled = false
     chartView.legend.enabled = false
     chartView.backgroundColor = chartBackgroundColor
+    
+    chartView.drawBordersEnabled = true
+    chartView.borderColor = UIColor.gray
   }
   
   func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
