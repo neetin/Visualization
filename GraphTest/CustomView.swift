@@ -10,15 +10,15 @@ import UIKit
 
 class CustomView: UIView {
     
-    override func draw(_ rect: CGRect) {
-        let path = UIBezierPath(rect: rect)
-        let customGreen = ThemeColor.layeredColor
-        customGreen.setFill()
-        path.fill()
-    }
-    
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
-    }
+  override func draw(_ rect: CGRect) {
+    let path = UIBezierPath(rect: rect)
+    let customGreen = ThemeColor.layeredColor
+    customGreen.setFill()
+    path.fill()
+  }
+  
+  override func layoutIfNeeded() {
+    super.layoutIfNeeded()
+  }
     
 }
