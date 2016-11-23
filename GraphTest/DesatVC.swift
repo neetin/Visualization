@@ -11,10 +11,11 @@ import Charts
 
 class DesatVC: UIViewController, ChartViewDelegate {
 
-    let dayColor = UIColor(colorLiteralRed: 203/255, green: 235/255, blue: 247/255, alpha: 0.5)//UIColor(hex: "cbebf7")
-    let nightColor = UIColor(colorLiteralRed: 220/255, green: 204/255, blue: 241/255, alpha: 0.5)//UIColor(hex: "dcccf1")
-    let lineColor = UIColor(colorLiteralRed: 76/255, green: 185/255, blue: 228/255, alpha: 1)//UIColor(hex: "28a9df")
+    let dayColor = UIColor(colorLiteralRed: 180/255, green: 154/255, blue: 224/255, alpha: 0.6)//UIColor(hex: "cbebf7")
+    let nightColor = UIColor(colorLiteralRed: 59/255, green: 178/255, blue: 226/255, alpha: 0.6)//UIColor(hex: "dcccf1")
+    let lineColor = UIColor(colorLiteralRed: 14/255, green: 145/255, blue: 200/255, alpha: 1)//UIColor(hex: "28a9df")
 //    let borderColor = UIColor(colorLiteralRed: 174/255, green: 204/255, blue: 243/255, alpha: 1)
+    let chartBackgroundColor = UIColor(colorLiteralRed: 238/255, green: 238/255, blue: 238/255, alpha: 0.4)
     
     @IBOutlet weak var chartView: CombinedChartView!
     weak var valueFormatter: IAxisValueFormatter!
@@ -37,7 +38,7 @@ class DesatVC: UIViewController, ChartViewDelegate {
         var dataEntries2: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 3, close: values[i] + 3)
+            let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4)
             dataEntry.y = values[i]
             dataEntries1.append(dataEntry)
         }
@@ -60,18 +61,24 @@ class DesatVC: UIViewController, ChartViewDelegate {
         lineChartDataSet.colors = [lineColor]
         lineChartDataSet.circleHoleRadius = 0
         lineChartDataSet.circleColors = [lineColor]
+        lineChartDataSet.circleRadius = 4
         lineChartDataSet.highlightEnabled = false
         lineChartDataSet.valueFormatter = customValueFormatter
-        lineChartDataSet.valueColors = [lineColor]
-        lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
+        lineChartDataSet.valueColors = [UIColor.white]
+        lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 16)
+        lineChartDataSet.lineWidth = 4
         
         let rightYAxis = chartView.getAxis(.right)
-        rightYAxis.axisMaximum = 25 // based on the desaturation values
+        rightYAxis.axisMaximum = 30 // based on the desaturation values
         rightYAxis.axisMinimum = 0
+        rightYAxis.granularityEnabled = true
+        rightYAxis.granularity = 10
         
         let leftYAxis = chartView.getAxis(.left)
-        leftYAxis.axisMaximum = 25 // based on the desaturation values
+        leftYAxis.axisMaximum = 30 // based on the desaturation values
         leftYAxis.axisMinimum = 0
+        leftYAxis.granularityEnabled = true
+        leftYAxis.granularity = 10
         
         let xAxis = chartView.xAxis
         xAxis.valueFormatter = valueFormatter
@@ -103,6 +110,7 @@ class DesatVC: UIViewController, ChartViewDelegate {
 //        chartView.highlightPerTapEnabled = false
 //        chartView.highlightFullBarEnabled = false
         chartView.legend.enabled = false
+        chartView.backgroundColor = chartBackgroundColor
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
