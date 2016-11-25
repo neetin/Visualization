@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class DesatVC: UIViewController, ChartViewDelegate {
+class DesatVC: UIViewController {
 
   let dayColor = UIColor(colorLiteralRed: 180/255, green: 154/255, blue: 224/255, alpha: 0.6)//UIColor(hex: "cbebf7")
   let nightColor = UIColor(colorLiteralRed: 59/255, green: 178/255, blue: 226/255, alpha: 0.6)//UIColor(hex: "dcccf1")
@@ -20,6 +20,8 @@ class DesatVC: UIViewController, ChartViewDelegate {
   @IBOutlet weak var chartView: CombinedChartView!
   weak var valueFormatter: IAxisValueFormatter!
   weak var customValueFormatter: IValueFormatter!
+  
+  var highlightView = HighlightView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,7 +40,8 @@ class DesatVC: UIViewController, ChartViewDelegate {
     var dataEntries2: [ChartDataEntry] = []
     
     for i in 0..<dataPoints.count {
-        let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4)
+        let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4, data: DataCollection.desaturationLabels[i] as AnyObject?)//CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4)
+//      CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4, data: DataCollection.desaturationLabels[i] as AnyObject?)
         dataEntry.y = values[i]
         dataEntries1.append(dataEntry)
     }
@@ -54,7 +57,8 @@ class DesatVC: UIViewController, ChartViewDelegate {
     candleChartDataSet.shadowColor = UIColor.clear
 //        candleChartDataSet.shadowColorSameAsCandle = true
     candleChartDataSet.drawValuesEnabled = false
-    candleChartDataSet.highlightEnabled = false
+//    candleChartDataSet.highlightEnabled = false
+    candleChartDataSet.highlightColor = UIColor.clear
     candleChartDataSet.setFill = true
     
     let lineChartDataSet = LineChartDataSet(values: dataEntries2, label: "Company 2")
@@ -128,9 +132,36 @@ class DesatVC: UIViewController, ChartViewDelegate {
     chartView.borderColor = UIColor.gray
   }
   
-  func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-    print(entry)
+  func highlightSelected(atPosition positionX: Double, withIndex index: Int) {
+    let values: [Double] = DataCollection.getDesaturationEpisodes()
+    let xPos = positionX
+    let open = values[index] - 4
+    let close = values[index] + 4
+    let barSpace: CGFloat = 0.1
+    let phaseY: Double = 1
+    
+    let trans = chartView.getTransformer(forAxis: .right)//dataProvider.getTransformer(forAxis: dataSet.axisDependency)
+    var highlightRect = CGRect()
+    highlightRect.origin.x = CGFloat(xPos) - 0.5 + barSpace
+    highlightRect.origin.y = CGFloat(close * phaseY)
+    highlightRect.size.width = (CGFloat(xPos) + 0.5 - barSpace) - highlightRect.origin.x
+    highlightRect.size.height = CGFloat(open * phaseY) - highlightRect.origin.y
+    trans.rectValueToPixel(&highlightRect)
+    
+    highlightView.frame = highlightRect
+    highlightView.backgroundColor = UIColor.blue
+    chartView.addSubview(highlightView)
+
   }
+  
+}
+
+extension DesatVC: ChartViewDelegate {
+  
+  func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+    highlightSelected(atPosition: entry.x, withIndex: Int(highlight.x))
+  }
+  
 }
 
 extension DesatVC: IAxisValueFormatter {
