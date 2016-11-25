@@ -153,7 +153,7 @@ class DesatVC: UIViewController {
     let alertController = UIAlertController(title: "Desaturaton Summary", message: "Your child desaturation count for today is \(info.y)", preferredStyle: .alert)
     
     let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: {(alert :UIAlertAction!) in
-      
+      self.highlightView.removeFromSuperview()
     })
     alertController.addAction(dismissAction)
     
