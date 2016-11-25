@@ -103,12 +103,13 @@ class OxygenSaturationSegmentVC: UIViewController {
     maxLine.lineColor = lineColor
     maxLine.lineWidth = 4
     maxLine.valueTextColor = lineColor
+    maxLine.valueFont = UIFont.systemFont(ofSize: 22)
     yAxis.addLimitLine(maxLine)
     
     chartView.drawBordersEnabled = true
     chartView.borderColor = UIColor.gray
     chartView.getAxis(.right).labelTextColor = UIColor.gray
-    chartView.getAxis(.right).labelFont = UIFont.systemFont(ofSize: 16)
+    chartView.getAxis(.right).labelFont = UIFont.systemFont(ofSize: 22)
     chartView.getAxis(.right).gridColor = UIColor.gray
     
     chartView.getAxis(.left).labelTextColor = UIColor.gray
@@ -121,6 +122,7 @@ class OxygenSaturationSegmentVC: UIViewController {
     minLine.lineColor = lineColor
     minLine.lineWidth = 4
     minLine.valueTextColor = lineColor
+    minLine.valueFont = UIFont.systemFont(ofSize: 22)
     yAxis.addLimitLine(minLine)
     
   }

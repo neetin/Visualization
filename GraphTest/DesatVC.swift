@@ -154,6 +154,7 @@ class DesatVC: UIViewController {
     
     let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: {(alert :UIAlertAction!) in
       self.highlightView.removeFromSuperview()
+      self.chartView.lastHighlighted = nil
     })
     alertController.addAction(dismissAction)
     
