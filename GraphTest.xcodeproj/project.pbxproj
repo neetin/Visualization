@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00F301DC021521124D7F70A8 /* Pods_GraphTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EA6C96B89D98688ECFFD01 /* Pods_GraphTest.framework */; };
+		8E57C8621DE81153005A1C56 /* GrowthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57C8611DE81153005A1C56 /* GrowthVC.swift */; };
 		8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */; };
 		8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24BF1DD3633A0074BD2F /* StartVC.swift */; };
 		8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */; };
+		8EAF24D91DE5489600D41C3F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF24D71DE5489600D41C3F /* CustomView.swift */; };
+		8EAF24DA1DE5489600D41C3F /* DesatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF24D81DE5489600D41C3F /* DesatVC.swift */; };
 		8EBF25A61DD9D752001EF553 /* OxygenSaturationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF25A51DD9D752001EF553 /* OxygenSaturationVC.swift */; };
 		8EBF25AC1DD9D84C001EF553 /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF25AA1DD9D84C001EF553 /* DataCollection.swift */; };
 		8EBF25AD1DD9D84C001EF553 /* DataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF25AB1DD9D84C001EF553 /* DataValues.swift */; };
@@ -50,9 +53,12 @@
 
 /* Begin PBXFileReference section */
 		4589DF04AD0B9AD9A7E08258 /* Pods-GraphTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraphTest/Pods-GraphTest.release.xcconfig"; sourceTree = "<group>"; };
+		8E57C8611DE81153005A1C56 /* GrowthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowthVC.swift; sourceTree = "<group>"; };
 		8E6E24BD1DD35A210074BD2F /* CombinedChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinedChartVC.swift; sourceTree = "<group>"; };
 		8E6E24BF1DD3633A0074BD2F /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		8E6E24C11DD47ABD0074BD2F /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
+		8EAF24D71DE5489600D41C3F /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		8EAF24D81DE5489600D41C3F /* DesatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesatVC.swift; sourceTree = "<group>"; };
 		8EBF25A51DD9D752001EF553 /* OxygenSaturationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxygenSaturationVC.swift; sourceTree = "<group>"; };
 		8EBF25AA1DD9D84C001EF553 /* DataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollection.swift; sourceTree = "<group>"; };
 		8EBF25AB1DD9D84C001EF553 /* DataValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValues.swift; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 		8ED5827C1DD1FD02006B329A /* GraphTest */ = {
 			isa = PBXGroup;
 			children = (
+				8EAF24D71DE5489600D41C3F /* CustomView.swift */,
+				8EAF24D81DE5489600D41C3F /* DesatVC.swift */,
 				8EEC38BE1DD9B5EF00A5EA1F /* constants */,
 				8EEC38BB1DD9B5BD00A5EA1F /* extensions */,
 				99D99A551DD4929100CA09A6 /* GroupedPointsVC.swift */,
@@ -168,6 +176,7 @@
 				99D99A571DD5AD0A00CA09A6 /* CandleChartVC.swift */,
 				8EEC38B71DD9A5C000A5EA1F /* Start.storyboard */,
 				8EEC38B91DD9B25A00A5EA1F /* RespiratoryVC.swift */,
+				8E57C8611DE81153005A1C56 /* GrowthVC.swift */,
 			);
 			path = GraphTest;
 			sourceTree = "<group>";
@@ -392,7 +401,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -403,7 +412,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E6E24C01DD3633A0074BD2F /* StartVC.swift in Sources */,
+				8EAF24D91DE5489600D41C3F /* CustomView.swift in Sources */,
 				8EBF25AD1DD9D84C001EF553 /* DataValues.swift in Sources */,
+				8EAF24DA1DE5489600D41C3F /* DesatVC.swift in Sources */,
 				8E6E24BE1DD35A210074BD2F /* CombinedChartVC.swift in Sources */,
 				8ED582861DD1FD02006B329A /* GraphTest.xcdatamodeld in Sources */,
 				8ED582801DD1FD02006B329A /* ViewController.swift in Sources */,
@@ -415,6 +426,7 @@
 				8EBF25AF1DDA1859001EF553 /* OxygenSaturationSegmentVC.swift in Sources */,
 				8ED5827E1DD1FD02006B329A /* AppDelegate.swift in Sources */,
 				8EEC38BD1DD9B5BD00A5EA1F /* ColorExtension.swift in Sources */,
+				8E57C8621DE81153005A1C56 /* GrowthVC.swift in Sources */,
 				8E6E24C21DD47ABD0074BD2F /* BarChartVC.swift in Sources */,
 				8EBF25AC1DD9D84C001EF553 /* DataCollection.swift in Sources */,
 			);

@@ -202,6 +202,33 @@ struct DataCollection {
         let desaturationData: [Double] = [12, 18, 14, 16, 13, 14, 11, 17, 15, 15, 20, 8, 9, 10]
         return desaturationData
     }
+  
+  static func getHeightGrowthData() -> [Double] {
+    return [30, 30, 31, 31, 32, 32, 32, 33, 33, 34, 34, 35, 36, 37, 37, 38, 38, 39, 40, 40, 40, 41, 42] // in cm
+  }
+  
+  static func getHeightGrowthDataCurve(min: Double, max: Double) -> [Double] {
+    let firstQuarter = min + (max - min) / 4
+    let secondQuarter = min +  (max - min) / 2
+    let thirdQuarter = min + (3 * (max - min) / 4)
+    let curveDataPoints = Int((max - min) * 2)
+    var data: [Double] = []
+    var increment = 1.3
+    var startPoint = 22.0
+    for i in Int(min)..<curveDataPoints {
+      if i == Int(firstQuarter) {
+        increment = 1.1
+      } else if i == Int(secondQuarter) {
+        increment = 1.3
+      } else if i == Int(thirdQuarter) {
+        increment = 1.2
+      }
+      data.append(startPoint)
+      startPoint += increment
+    }
+    
+    return data  // for 22-55 weeks only
+  }
     
     // Just show one value based in xAxis label
     static let desaturationLabels: [String] = ["Nov7", "", "Nov8", "", "Nov9", "", "Nov10", "", "Nov11", "", "Nov12", "", "Nov13", ""]

@@ -9,24 +9,18 @@ PODS:
     - Realm (= 2.0.3)
 
 DEPENDENCIES:
-  - Charts (from `https://github.com/danielgindi/Charts.git`, branch `master`)
+  - Charts (from `/Users/neetin/projects/iOS/Sujan_charts`)
   - RealmSwift (~> 2.0.2)
 
 EXTERNAL SOURCES:
   Charts:
-    :branch: master
-    :git: https://github.com/danielgindi/Charts.git
-
-CHECKOUT OPTIONS:
-  Charts:
-    :commit: ff0ef313b7a8a3459e03b4219120a46ecfdc5385
-    :git: https://github.com/danielgindi/Charts.git
+    :path: "/Users/neetin/projects/iOS/Sujan_charts"
 
 SPEC CHECKSUMS:
   Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
   RealmSwift: 5afb451f65b682242f272dbb52d5c6f6e343c980
 
-PODFILE CHECKSUM: 69fa049a78b1a9d78aa2d107fb4acffd217c1685
+PODFILE CHECKSUM: eff6fcb0a7ba84d83fa104457d4b2ee4cdca203e
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

@@ -57,6 +57,8 @@ class RespiratoryVC: UIViewController {
     func configureView() {
         if segmentControl.selectedSegmentIndex == 2 {
             configureVC(withName: "DesatVC")
+        } else if segmentControl.selectedSegmentIndex == 3 {
+          configureVC(withName: "GrowthVC")
         } else {
             configureVC(withName: "OxygenSaturationSegmentVC")
         }
