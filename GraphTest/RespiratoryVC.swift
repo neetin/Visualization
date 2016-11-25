@@ -44,10 +44,10 @@ class RespiratoryVC: UIViewController {
     let storyboard = UIStoryboard(name: "Start", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: withName)
     
-    self.addChildViewController(vc)
+//    self.addChildViewController(vc)
     vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: containerView.frame.size.height)
     containerView.addSubview(vc.view)
-    vc.didMove(toParentViewController: self)
+//    vc.didMove(toParentViewController: self)
   }
 
   func selectionDidChange(_ sender: UISegmentedControl) {
@@ -66,10 +66,13 @@ class RespiratoryVC: UIViewController {
     let storyboard = UIStoryboard(name: "Start", bundle: nil)
     let vc = storyboard.instantiateViewController(withIdentifier: withName)
     
-    self.addChildViewController(vc)
+    for view in containerView.subviews{
+      view.removeFromSuperview()
+    }
+//    self.addChildViewController(vc)
     vc.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: containerView.frame.size.height)
     containerView.addSubview(vc.view)
-    vc.didMove(toParentViewController: self)
+//    vc.didMove(toParentViewController: self)
   }
   
 }

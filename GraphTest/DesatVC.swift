@@ -16,7 +16,7 @@ class DesatVC: UIViewController {
   let lineColor = UIColor(colorLiteralRed: 14/255, green: 145/255, blue: 200/255, alpha: 1)//UIColor(hex: "28a9df")
 //    let borderColor = UIColor(colorLiteralRed: 174/255, green: 204/255, blue: 243/255, alpha: 1)
   let chartBackgroundColor = UIColor(colorLiteralRed: 238/255, green: 238/255, blue: 238/255, alpha: 0.4)
-  
+  let highlightColor = UIColor(colorLiteralRed: 162/255, green: 133/255, blue: 214/255, alpha: 0.8)
   @IBOutlet weak var chartView: CombinedChartView!
   weak var valueFormatter: IAxisValueFormatter!
   weak var customValueFormatter: IValueFormatter!
@@ -30,7 +30,7 @@ class DesatVC: UIViewController {
     customValueFormatter = self
     drawLineChart(DataCollection.desaturationLabels)
   }
-  
+
   func drawLineChart(_ dataPoints: [String]) {
     chartView.noDataText = "You need to provide data for the chart."
     chartView.enableCustomXEntries = true
@@ -40,9 +40,8 @@ class DesatVC: UIViewController {
     var dataEntries2: [ChartDataEntry] = []
     
     for i in 0..<dataPoints.count {
-        let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4, data: DataCollection.desaturationLabels[i] as AnyObject?)//CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4)
-//      CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4, data: DataCollection.desaturationLabels[i] as AnyObject?)
-        dataEntry.y = values[i]
+        let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4, data: DataCollection.desaturationLabels[i] as AnyObject?)
+      dataEntry.y = values[i]
         dataEntries1.append(dataEntry)
     }
     
@@ -114,8 +113,6 @@ class DesatVC: UIViewController {
     chartData.candleData = CandleChartData(dataSet: candleChartDataSet)
     chartData.lineData = LineChartData(dataSet: lineChartDataSet)
     chartView.data = chartData
-//        chartView.drawBordersEnabled = true
-//        chartView.borderColor = borderColor
     
     chartView.drawOrder = [DrawOrder.candle.rawValue, DrawOrder.line.rawValue]
     chartView.chartDescription?.text = ""
@@ -123,8 +120,6 @@ class DesatVC: UIViewController {
     // unnecessary gesture
     chartView.scaleXEnabled = false
     chartView.scaleYEnabled = false
-//        chartView.highlightPerTapEnabled = false
-//        chartView.highlightFullBarEnabled = false
     chartView.legend.enabled = false
     chartView.backgroundColor = chartBackgroundColor
     
@@ -132,7 +127,7 @@ class DesatVC: UIViewController {
     chartView.borderColor = UIColor.gray
   }
   
-  func highlightSelected(atPosition positionX: Double, withIndex index: Int) {
+  func calculateHighlightFrame(atPosition positionX: Double, withIndex index: Int) -> CGRect {
     let values: [Double] = DataCollection.getDesaturationEpisodes()
     let xPos = positionX
     let open = values[index] - 4
@@ -147,11 +142,22 @@ class DesatVC: UIViewController {
     highlightRect.size.width = (CGFloat(xPos) + 0.5 - barSpace) - highlightRect.origin.x
     highlightRect.size.height = CGFloat(open * phaseY) - highlightRect.origin.y
     trans.rectValueToPixel(&highlightRect)
-    
+    return highlightRect
+  }
+  
+  func showInsight(withRect highlightRect: CGRect, withInfo info: ChartDataEntry) {
     highlightView.frame = highlightRect
-    highlightView.backgroundColor = UIColor.blue
+    highlightView.backgroundColor = highlightColor
     chartView.addSubview(highlightView)
-
+    
+    let alertController = UIAlertController(title: "Desaturaton Summary", message: "Your child desaturation count for today is \(info.y)", preferredStyle: .alert)
+    
+    let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: {(alert :UIAlertAction!) in
+      
+    })
+    alertController.addAction(dismissAction)
+    
+    present(alertController, animated: true, completion: nil)
   }
   
 }
@@ -159,7 +165,16 @@ class DesatVC: UIViewController {
 extension DesatVC: ChartViewDelegate {
   
   func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-    highlightSelected(atPosition: entry.x, withIndex: Int(highlight.x))
+    var touchPoint: CGPoint!
+    for recogniser in chartView.gestureRecognizers! {
+      if let gestureRegogniser = recogniser as? UITapGestureRecognizer {
+        touchPoint = gestureRegogniser.location(in: chartView)
+      }
+    }
+    let highlightFrame = calculateHighlightFrame(atPosition: entry.x, withIndex: Int(highlight.x))
+    if touchPoint.x > highlightFrame.origin.x && touchPoint.x < (highlightFrame.origin.x + highlightFrame.width) && touchPoint.y > highlightFrame.origin.y && touchPoint.y < (highlightFrame.origin.y + highlightFrame.height) {
+      showInsight(withRect: highlightFrame, withInfo: entry)
+    }
   }
   
 }
