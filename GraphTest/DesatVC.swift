@@ -145,7 +145,7 @@ class DesatVC: UIViewController {
     chartView.scaleXEnabled = false
     chartView.scaleYEnabled = false
     chartView.legend.enabled = false
-    chartView.backgroundColor = chartBackgroundColor
+//    chartView.backgroundColor = chartBackgroundColor
     
     chartView.drawBordersEnabled = true
     chartView.borderColor = UIColor.gray

@@ -309,7 +309,6 @@ SATURATION</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="AT6-0K-whf" secondAttribute="trailing" constant="16" id="4LD-S5-k3S"/>
                             <constraint firstItem="AT6-0K-whf" firstAttribute="leading" secondItem="Mmk-Sf-qAQ" secondAttribute="leadingMargin" constant="16" id="MGX-rH-iLQ"/>
