@@ -153,14 +153,19 @@ class DesatVC: UIViewController {
   
   func addInsightView() {
     insightView = HighlightView(frame: calculateHighlightFrame(atPosition: Double(insightIndex), withIndex: insightIndex))
-    let insightLabel = UILabel(frame: CGRect(x: 0, y: insightView.frame.height - 20, width: insightView.frame.width, height: 12))
+    let insightImageView = UIImageView(frame: CGRect(x: insightView.frame.width/3, y: insightView.frame.height/2 + 12, width: insightView.frame.width/3, height: 30))
+    insightImageView.image = UIImage(named: "bulb")
+    
+    let insightLabel = UILabel(frame: CGRect(x: 0, y: insightView.frame.height - 16, width: insightView.frame.width, height: 12))
     insightLabel.text = "Insight"
     insightLabel.textAlignment = .center
     insightLabel.font = UIFont.systemFont(ofSize: 12)
     insightLabel.textColor = UIColor.white
+    
     insightView.backgroundColor = highlightColor
     chartView.addSubview(insightView)
     insightView.addSubview(insightLabel)
+    insightView.addSubview(insightImageView)
     didAppear = true
   }
   
