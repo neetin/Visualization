@@ -95,6 +95,17 @@ class OxygenSaturationSegmentVC: UIViewController {
     lineChartDataSet.valueFormatter = valueFormatter
     lineChartDataSet.lineWidth = 2
     
+    chartView.drawBordersEnabled = true
+    chartView.borderColor = UIColor.gray
+    chartView.getAxis(.right).labelTextColor = UIColor.gray
+    chartView.getAxis(.right).labelFont = UIFont.systemFont(ofSize: 16)
+    chartView.getAxis(.right).gridColor = UIColor.gray
+    
+    chartView.getAxis(.left).labelTextColor = UIColor.gray
+    chartView.getAxis(.left).gridColor = UIColor.gray
+    chartView.getAxis(.left).labelFont = UIFont.systemFont(ofSize: 16)
+
+    
     // Limit line
     let yAxis = chartView.getAxis(.right)
     let maxLine = ChartLimitLine(limit: maxTarget, label: String.localizedStringWithFormat("%.0f", maxTarget))
@@ -105,16 +116,6 @@ class OxygenSaturationSegmentVC: UIViewController {
     maxLine.valueTextColor = lineColor
     maxLine.valueFont = UIFont.systemFont(ofSize: 22)
     yAxis.addLimitLine(maxLine)
-    
-    chartView.drawBordersEnabled = true
-    chartView.borderColor = UIColor.gray
-    chartView.getAxis(.right).labelTextColor = UIColor.gray
-    chartView.getAxis(.right).labelFont = UIFont.systemFont(ofSize: 22)
-    chartView.getAxis(.right).gridColor = UIColor.gray
-    
-    chartView.getAxis(.left).labelTextColor = UIColor.gray
-    chartView.getAxis(.left).gridColor = UIColor.gray
-    chartView.getAxis(.left).labelFont = UIFont.systemFont(ofSize: 16)
     
     let minLine = ChartLimitLine(limit: minTarget, label: String.localizedStringWithFormat("%.0f", minTarget))
     minLine.labelPosition = .leftBottom
