@@ -21,7 +21,10 @@ class DesatVC: UIViewController {
   weak var valueFormatter: IAxisValueFormatter!
   weak var customValueFormatter: IValueFormatter!
   
-  var highlightView = HighlightView()
+//  var highlightView = HighlightView()
+  var insightIndex = 0
+  var insightView: HighlightView!
+  var didAppear = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,24 +33,44 @@ class DesatVC: UIViewController {
     customValueFormatter = self
     drawLineChart(DataCollection.desaturationLabels)
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    addInsightView()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    if didAppear {
+      insightView.frame = calculateHighlightFrame(atPosition: Double(insightIndex), withIndex: insightIndex)
+    }
+  }
 
   func drawLineChart(_ dataPoints: [String]) {
     chartView.noDataText = "You need to provide data for the chart."
     chartView.enableCustomXEntries = true
+    chartView.valuePosition = .insideCircle
     let values: [Double] = DataCollection.getDesaturationEpisodes()
     
     var dataEntries1: [CandleChartDataEntry] = []
     var dataEntries2: [ChartDataEntry] = []
     
+    let minDesatEpisode = values.min()
+    var insight = false
+    
     for i in 0..<dataPoints.count {
-        let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4, data: DataCollection.desaturationLabels[i] as AnyObject?)
+      let dataEntry = CandleChartDataEntry(x: Double(i), shadowH: values[i], shadowL: values[i], open: values[i] - 4, close: values[i] + 4, data: DataCollection.desaturationLabels[i] as AnyObject?)
       dataEntry.y = values[i]
-        dataEntries1.append(dataEntry)
+      dataEntries1.append(dataEntry)
     }
     
     for i in 0..<dataPoints.count {
-        let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-        dataEntries2.append(dataEntry)
+      if values[i] == minDesatEpisode {
+        insight = true
+        insightIndex = i
+      }
+      let dataEntry = ChartDataEntry(x: Double(i), y: values[i], data: insight as AnyObject?)//ChartDataEntry(x: Double(i), y: values[i])
+      dataEntries2.append(dataEntry)
     }
     
     let candleChartDataSet = CandleChartDataSet(values: dataEntries1, label: "Company 1")
@@ -63,12 +86,13 @@ class DesatVC: UIViewController {
     let lineChartDataSet = LineChartDataSet(values: dataEntries2, label: "Company 2")
     lineChartDataSet.colors = [lineColor]
     lineChartDataSet.circleHoleRadius = 0
+    lineChartDataSet.circleHoleColor = lineColor
     lineChartDataSet.circleColors = [lineColor]
-    lineChartDataSet.circleRadius = 4
+    lineChartDataSet.circleRadius = 9
     lineChartDataSet.highlightEnabled = false
     lineChartDataSet.valueFormatter = customValueFormatter
     lineChartDataSet.valueColors = [UIColor.white]
-    lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 16)
+    lineChartDataSet.valueFont = UIFont.systemFont(ofSize: 12)
     lineChartDataSet.lineWidth = 4
     
     let rightYAxis = chartView.getAxis(.right)
@@ -127,6 +151,19 @@ class DesatVC: UIViewController {
     chartView.borderColor = UIColor.gray
   }
   
+  func addInsightView() {
+    insightView = HighlightView(frame: calculateHighlightFrame(atPosition: Double(insightIndex), withIndex: insightIndex))
+    let insightLabel = UILabel(frame: CGRect(x: 0, y: insightView.frame.height - 20, width: insightView.frame.width, height: 12))
+    insightLabel.text = "Insight"
+    insightLabel.textAlignment = .center
+    insightLabel.font = UIFont.systemFont(ofSize: 12)
+    insightLabel.textColor = UIColor.white
+    insightView.backgroundColor = highlightColor
+    chartView.addSubview(insightView)
+    insightView.addSubview(insightLabel)
+    didAppear = true
+  }
+  
   func calculateHighlightFrame(atPosition positionX: Double, withIndex index: Int) -> CGRect {
     let values: [Double] = DataCollection.getDesaturationEpisodes()
     let xPos = positionX
@@ -146,18 +183,16 @@ class DesatVC: UIViewController {
   }
   
   func showInsight(withRect highlightRect: CGRect, withInfo info: ChartDataEntry) {
-    highlightView.frame = highlightRect
-    highlightView.backgroundColor = highlightColor
-    chartView.addSubview(highlightView)
+//    highlightView.frame = highlightRect
+//    highlightView.backgroundColor = highlightColor
+//    chartView.addSubview(highlightView)
     
     let alertController = UIAlertController(title: "Desaturaton Summary", message: "Your child desaturation count for today is \(info.y)", preferredStyle: .alert)
     
     let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: {(alert :UIAlertAction!) in
-      self.highlightView.removeFromSuperview()
       self.chartView.lastHighlighted = nil
     })
     alertController.addAction(dismissAction)
-    
     present(alertController, animated: true, completion: nil)
   }
   
@@ -173,8 +208,10 @@ extension DesatVC: ChartViewDelegate {
       }
     }
     let highlightFrame = calculateHighlightFrame(atPosition: entry.x, withIndex: Int(highlight.x))
-    if touchPoint.x > highlightFrame.origin.x && touchPoint.x < (highlightFrame.origin.x + highlightFrame.width) && touchPoint.y > highlightFrame.origin.y && touchPoint.y < (highlightFrame.origin.y + highlightFrame.height) {
-      showInsight(withRect: highlightFrame, withInfo: entry)
+    if highlightFrame == insightView.frame {
+      if touchPoint.x > highlightFrame.origin.x && touchPoint.x < (highlightFrame.origin.x + highlightFrame.width) && touchPoint.y > highlightFrame.origin.y && touchPoint.y < (highlightFrame.origin.y + highlightFrame.height) {
+        showInsight(withRect: highlightFrame, withInfo: entry)
+      }
     }
   }
   
