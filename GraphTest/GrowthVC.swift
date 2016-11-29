@@ -10,16 +10,20 @@ import UIKit
 import Charts
 
 class GrowthVC: UIViewController {
-
+  
+  weak var axisFormatDelegate: IAxisValueFormatter?
+  
   @IBOutlet weak var chartView: CombinedChartView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      drawLineChart()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    axisFormatDelegate = self
+   
+    drawLineChart()
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
   
   func drawLineChart() {
     chartView.noDataText = "You need to provide data for the chart."
@@ -34,7 +38,7 @@ class GrowthVC: UIViewController {
     var dataEntries3: [BarChartDataEntry] = []
     
     for i in 0..<values1.count {
-      let dataEntry =   ChartDataEntry(x: Double(i) , y: values1[i])
+      let dataEntry =   ChartDataEntry(x: Double(i + 26) , y: values1[i])
       dataEntries1.append(dataEntry)
     }
     
@@ -51,7 +55,7 @@ class GrowthVC: UIViewController {
     
     let curveData = DataCollection.getHeightGrowthDataCurve(min: min, max: max)
     for i in 0..<curveData.count {
-      let dataEntry = BarChartDataEntry(x: Double(i), y: curveData[i])
+      let dataEntry = BarChartDataEntry(x: Double(i + 22), y: curveData[i])
       dataEntries3.append(dataEntry)
     }
     
@@ -67,14 +71,15 @@ class GrowthVC: UIViewController {
     
     let curveLineDataSet = LineChartDataSet(values: dataEntries3, label: "Standard height curve in cm")
     
-//    curveLineDataSet.drawCircleHoleEnabled = false
+    //    curveLineDataSet.drawCircleHoleEnabled = false
     curveLineDataSet.drawCirclesEnabled = false
     curveLineDataSet.highlightColor = UIColor.black
     curveLineDataSet.colors = [UIColor.black]
-  curveLineDataSet.drawValuesEnabled = false
+    curveLineDataSet.drawValuesEnabled = false
+    
     
     let chartData = CombinedChartData()
-//    chartData.barData = BarChartData(dataSet: barChartDataSet)
+    //    chartData.barData = BarChartData(dataSet: barChartDataSet)
     chartData.lineData = LineChartData(dataSet: curveLineDataSet)
     chartData.scatterData = ScatterChartData(dataSets: [scatterChartDataSet])
     
@@ -87,5 +92,19 @@ class GrowthVC: UIViewController {
     chartView.drawGridBackgroundEnabled = true
     chartView.gridBackgroundColor = UIColor.white
     
+    let xAxis = chartView.xAxis
+    xAxis.valueFormatter = axisFormatDelegate
+    xAxis.granularityEnabled = true
+    xAxis.granularity = 12
+    xAxis.labelPosition = .bottom
+
+    
+    
+  }
+}
+
+extension GrowthVC: IAxisValueFormatter {
+  func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+    return String(Int(value)) + " weeks"
   }
 }
